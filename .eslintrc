@@ -1,0 +1,8 @@
+{
+    "extends": "mysticatea/nodejs",
+    "rules": {
+        "indent": [2, 4],
+        "no-multi-str": 0,
+        "spaced-comment": [2, "always", {"exceptions": ["-", "="]}]
+    }
+}

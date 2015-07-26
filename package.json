@@ -1,0 +1,48 @@
+{
+  "name": "eslint-plugin-mysticatea",
+  "version": "0.1.0",
+  "description": "ESLint rules for me.",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rimraf lib coverage",
+    "lint": "eslint src test scripts --color",
+    "build": "npm-run-all clean lint test:mocha build:*",
+    "build:rules": "babel src --out-dir lib",
+    "build:index": "node scripts/generate-index.js",
+    "test": "npm-run-all lint test:mocha",
+    "test:mocha": "istanbul cover node_modules/mocha/bin/_mocha -- test/**/*.js --compilers js:babel/register --colors",
+    "testing": "mocha test/**/*.js --compilers js:babel/register --colors --watch --growl",
+    "coveralls": "cat coverage/lcov.info | coveralls"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "eslint": "*"
+  },
+  "devDependencies": {
+    "babel": "^5.8.5",
+    "coveralls": "^2.11.3",
+    "eslint": "^1.0.0-rc-3",
+    "eslint-config-mysticatea": "^1.0.0-rc-2",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "npm-run-all": "^1.2.6",
+    "rimraf": "^2.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mysticatea/eslint-plugin.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ],
+  "author": "Toru Nagashima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mysticatea/eslint-plugin/issues"
+  },
+  "homepage": "https://github.com/mysticatea/eslint-plugin#readme"
+}
