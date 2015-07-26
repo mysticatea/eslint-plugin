@@ -1,5 +1,9 @@
 # eslint-plugin-mysticatea
 
+[![Build Status](https://travis-ci.org/mysticatea/eslint-plugin.svg?branch=master)](https://travis-ci.org/mysticatea/eslint-plugin)
+[![Coverage Status](https://coveralls.io/repos/mysticatea/eslint-plugin/badge.svg?branch=master)](https://coveralls.io/r/mysticatea/eslint-plugin?branch=master)
+[![npm version](https://badge.fury.io/js/eslint-plugin-mysticatea.svg)](http://badge.fury.io/js/eslint-plugin-mysticatea)
+
 Additional rules of ESLint for me.
 
 ## Installation
@@ -14,7 +18,7 @@ npm install --save-dev eslint eslint-plugin-mysticatea
 {
     "plugins": [
         "mysticatea"
-    ]
+    ],
     "rules": {
         "mysticatea/arrow-parens": 2,
         "mysticatea/block-scoped-var": 2,

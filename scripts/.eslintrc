@@ -1,9 +1,4 @@
 {
     "extends": "mysticatea/es5",
-    "env": {"node": true},
-    "rules": {
-        "indent": [2, 4],
-        "no-multi-str": 0,
-        "spaced-comment": [2, "always", {"exceptions": ["-", "="]}]
-    }
+    "env": {"node": true}
 }

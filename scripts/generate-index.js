@@ -21,7 +21,9 @@ var rulesConfig = ruleNames
     })
     .join(",\n");
 
-fs.writeFileSync(path.join(__dirname, "../lib/index.js"), "\"use strict\";\n\
+fs.writeFileSync(path.join(__dirname, "../lib/index.js"), "\
+\"use strict\";\n\
+\n\
 module.exports = {\n\
     rules: {\n\
 " + rules + "\n\
