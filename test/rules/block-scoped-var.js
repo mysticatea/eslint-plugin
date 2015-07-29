@@ -24,8 +24,8 @@ import {linter as eslint, ESLintTester} from "eslint";
         {code: "(class a { foo() { var a; } })();", ecmaFeatures: {classes: true}}
     ],
     invalid: [
-        {code: "{ var a; } a;", errors: [{type: "Identifier", message: "\"a\" is not defined."}]},
-        {code: "a; { var a; }", errors: [{type: "Identifier", message: "\"a\" is not defined."}]},
+        {code: "{ var a; a; } a;", errors: [{type: "Identifier", message: "\"a\" is not defined."}]},
+        {code: "a; { var a; a; }", errors: [{type: "Identifier", message: "\"a\" is not defined."}]},
         {code: "for (var a; a; a) { } a;", errors: [{type: "Identifier", message: "\"a\" is not defined."}]},
         {code: "a; for (var a; a; a) { }", errors: [{type: "Identifier", message: "\"a\" is not defined."}]},
         {code: "{ var a; var a; }", errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
@@ -35,6 +35,7 @@ import {linter as eslint, ESLintTester} from "eslint";
         {code: "import a from \"a\"; var a;", ecmaFeatures: {modules: true}, errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
         {code: "import a from \"a\"; import a from \"b/a\";", ecmaFeatures: {modules: true}, errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
         {code: "{ var a; { var a; } }", errors: [{type: "Identifier", message: "\"a\" is already defined in the upper scope."}]},
-        {code: "import a from \"a\"; { var a; }", ecmaFeatures: {modules: true}, errors: [{type: "Identifier", message: "\"a\" is already defined in the upper scope."}]}
+        {code: "import a from \"a\"; { var a; }", ecmaFeatures: {modules: true}, errors: [{type: "Identifier", message: "\"a\" is already defined in the upper scope."}]},
+        {code: "{ var a; } { var a; a; }", errors: [{type: "Identifier", message: "\"a\" is defined but never used.", column: 7}]}
     ]
 });
