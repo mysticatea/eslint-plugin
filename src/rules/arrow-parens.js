@@ -37,7 +37,10 @@ export default function rule(context) {
             const before = context.getTokenBefore(first);
 
             if (isOpenParen(first)) {
-                if (isOpenParen(before) && isSameLine(before, first)) {
+                if (node.params.length === 1 &&
+                    isOpenParen(before) &&
+                    isSameLine(before, first)
+                ) {
                     context.report(
                         node,
                         "remove redundant parens of the argument list.");
