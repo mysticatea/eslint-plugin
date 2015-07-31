@@ -11,6 +11,9 @@ import {linter as eslint, ESLintTester} from "eslint";
         {code: "foo(x => x);", ecmaFeatures: {arrowFunctions: true}},
         {code: "foo(() => 0);", ecmaFeatures: {arrowFunctions: true}},
         {code: "foo((x, y) => x);", ecmaFeatures: {arrowFunctions: true}},
+        {code: "foo((x = 0) => x);", ecmaFeatures: {arrowFunctions: true, defaultParams: true}},
+        {code: "foo(([x]) => x);", ecmaFeatures: {arrowFunctions: true, destructuring: true}},
+        {code: "foo(({x}) => x);", ecmaFeatures: {arrowFunctions: true, destructuring: true}},
         {code: "foo(x => x, (x) => x);", ecmaFeatures: {arrowFunctions: true}},
         {code: "foo(\n    (x) => x,\n    (x) => x\n);", ecmaFeatures: {arrowFunctions: true}}
     ],

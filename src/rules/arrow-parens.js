@@ -38,6 +38,7 @@ export default function rule(context) {
 
             if (isOpenParen(first)) {
                 if (node.params.length === 1 &&
+                    node.params[0].type === "Identifier" &&
                     isOpenParen(before) &&
                     isSameLine(before, first)
                 ) {
