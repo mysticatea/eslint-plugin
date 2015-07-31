@@ -7,6 +7,7 @@
     "lib"
   ],
   "scripts": {
+    "prepublish": "npm run build",
     "clean": "rimraf lib coverage",
     "lint": "eslint src test scripts --color",
     "build": "npm-run-all clean lint test:mocha build:*",
