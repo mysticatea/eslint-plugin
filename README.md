@@ -1,7 +1,7 @@
 # eslint-plugin-mysticatea
 
 [![Build Status](https://travis-ci.org/mysticatea/eslint-plugin.svg?branch=master)](https://travis-ci.org/mysticatea/eslint-plugin)
-[![Coverage Status](https://coveralls.io/repos/mysticatea/eslint-plugin/badge.svg?branch=master)](https://coveralls.io/r/mysticatea/eslint-plugin?branch=master)
+[![Coverage Status](https://coveralls.io/repos/mysticatea/eslint-plugin/badge.svg?branch=master&service=github)](https://coveralls.io/github/mysticatea/eslint-plugin?branch=master)
 [![npm version](https://badge.fury.io/js/eslint-plugin-mysticatea.svg)](http://badge.fury.io/js/eslint-plugin-mysticatea)
 
 Additional rules of ESLint for me.
