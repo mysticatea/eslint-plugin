@@ -2,9 +2,10 @@
  * @author Toru Nagashima
  * @copyright 2015 Toru Nagashima. All rights reserved.
  */
-import {linter as eslint, ESLintTester} from "eslint";
+import {RuleTester} from "eslint";
+import rule from "../../src/rules/block-scoped-var";
 
-(new ESLintTester(eslint)).addRuleTest("src/rules/block-scoped-var", {
+(new RuleTester()).run("block-scoped-var", rule, {
     valid: [
         {code: "{ var a; a; } { var a; a; }"},
         {code: "{ var a; a; } { { var a; a; } { var a; { a; } } }"},

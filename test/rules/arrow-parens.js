@@ -2,9 +2,10 @@
  * @author Toru Nagashima
  * @copyright 2015 Toru Nagashima. All rights reserved.
  */
-import {linter as eslint, ESLintTester} from "eslint";
+import {RuleTester} from "eslint";
+import rule from "../../src/rules/arrow-parens";
 
-(new ESLintTester(eslint)).addRuleTest("src/rules/arrow-parens", {
+(new RuleTester()).run("arrow-parens", rule, {
     valid: [
         {code: "var foo = (x) => x;", ecmaFeatures: {arrowFunctions: true}},
         {code: "var foo = (x => x);", ecmaFeatures: {arrowFunctions: true}},
