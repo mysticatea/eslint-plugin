@@ -1,9 +1,13 @@
 /**
  * @author Toru Nagashima
  * @copyright 2015 Toru Nagashima. All rights reserved.
+ * See LICENSE file in root directory for full license.
  */
-import {RuleTester} from "eslint";
-import rule from "../../src/rules/arrow-parens";
+
+"use strict";
+
+const RuleTester = require("eslint").RuleTester;
+const rule = require("../../../lib/rules/arrow-parens");
 
 (new RuleTester()).run("arrow-parens", rule, {
     valid: [

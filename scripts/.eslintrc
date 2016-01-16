@@ -1,4 +1,0 @@
-{
-    "extends": "mysticatea/es5",
-    "env": {"node": true}
-}

@@ -1,9 +1,13 @@
 /**
  * @author Toru Nagashima
  * @copyright 2015 Toru Nagashima. All rights reserved.
+ * See LICENSE file in root directory for full license.
  */
-import {RuleTester} from "eslint";
-import rule from "../../src/rules/block-scoped-var";
+
+"use strict";
+
+const RuleTester = require("eslint").RuleTester;
+const rule = require("../../../lib/rules/block-scoped-var");
 
 (new RuleTester()).run("block-scoped-var", rule, {
     valid: [

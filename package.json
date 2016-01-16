@@ -2,37 +2,39 @@
   "name": "eslint-plugin-mysticatea",
   "version": "1.0.3",
   "description": "ESLint rules for me.",
-  "main": "lib/index.js",
+  "main": "index.js",
   "files": [
     "lib"
   ],
   "scripts": {
     "preversion": "npm run build",
     "postversion": "git push && git push --tags",
-    "clean": "rimraf lib coverage",
-    "lint": "eslint src test scripts",
-    "build": "npm-run-all clean test build:*",
-    "build:rules": "babel src --out-dir lib",
+    "clean": "rimraf coverage index.js",
+    "lint": "eslint src tests scripts",
+    "build": "npm-run-all clean test build:index",
     "build:index": "node scripts/generate-index.js",
     "test": "npm-run-all lint test:mocha",
-    "test:mocha": "istanbul cover node_modules/mocha/bin/_mocha -- test/**/*.js --compilers js:babel/register",
-    "testing": "mocha test/**/*.js --compilers js:babel/register --watch --growl",
+    "test:mocha": "istanbul cover node_modules/mocha/bin/_mocha -- tests/lib/**/*.js",
+    "testing": "mocha tests/**/*.js --watch --growl",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "dependencies": {},
   "peerDependencies": {
-    "eslint": "*"
+    "eslint": ">=1.10.3 || 2.0.0-beta.1"
   },
   "devDependencies": {
-    "babel": "^5.8.29",
-    "coveralls": "^2.11.4",
-    "eslint": "^1.9.0",
-    "eslint-config-mysticatea": "^1.8.0",
-    "eslint-plugin-mysticatea": "^1.0.2",
-    "istanbul": "^0.4.0",
-    "mocha": "^2.3.3",
-    "npm-run-all": "^1.2.13",
-    "rimraf": "^2.4.3"
+    "coveralls": "^2.11.6",
+    "eslint": "^1.10.3",
+    "eslint-config-mysticatea": "^1.9.0",
+    "eslint-plugin-mysticatea": "^1.0.3",
+    "eslint-plugin-node": "^0.4.1",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4",
+    "npm-run-all": "^1.4.0",
+    "rimraf": "^2.5.0"
+  },
+  "engines": {
+      "node": ">=4"
   },
   "repository": {
     "type": "git",
