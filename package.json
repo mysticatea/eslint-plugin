@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mysticatea",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "ESLint rules for me.",
   "main": "index.js",
   "files": [
@@ -34,7 +34,7 @@
     "rimraf": "^2.5.0"
   },
   "engines": {
-      "node": ">=4"
+    "node": ">=4"
   },
   "repository": {
     "type": "git",
