@@ -14,7 +14,7 @@ const ruleNames = fs
     .map(name => path.basename(name, ".js"));
 
 const rules = ruleNames
-    .map(name => `        "${name}": require("./rules/${name}")`)
+    .map(name => `        "${name}": require("./lib/rules/${name}")`)
     .join(",\n");
 
 const rulesConfig = ruleNames
