@@ -25,9 +25,24 @@ ruleTester.run("no-useless-rest-spread", rule, {
         {code: "function foo(a, b, c, ...d) {}", env: {es6: true}},
     ],
     invalid: [
-        {code: "let list = [...[x, y, x], ...b]", env: {es6: true}, errors: ["Unexpected a spread operator."]},
-        {code: "foo(...a, ...[x, y, x])", env: {es6: true}, errors: ["Unexpected a spread operator."]},
-        {code: "let [a, ...[b, c, ...d]] = obj", env: {es6: true}, errors: ["Unexpected a rest operator."]},
+        {
+            code: "let list = [...[x, y, x], ...b]",
+            output: "let list = [x, y, x, ...b]",
+            env: {es6: true},
+            errors: ["Unexpected a spread operator."],
+        },
+        {
+            code: "foo(...a, ...[x, y, x])",
+            output: "foo(...a, x, y, x)",
+            env: {es6: true},
+            errors: ["Unexpected a spread operator."],
+        },
+        {
+            code: "let [a, ...[b, c, ...d]] = obj",
+            output: "let [a, b, c, ...d] = obj",
+            env: {es6: true},
+            errors: ["Unexpected a rest operator."],
+        },
 
         // Acorn cannot parse this
         // {code: "function foo(a, ...[b, c, ...d]) {}", env: {es6: true}, errors: ["Unexpected a rest operator."]},
