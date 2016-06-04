@@ -1,14 +1,5 @@
 {
-    "extends": "mysticatea/nodejs",
-    "plugins": ["node"],
-    "ecmaFeatures": {
-        "modules": false
-    },
+    "extends": ["mysticatea/es5", "mysticatea/node"],
     "rules": {
-        "func-names": 0,
-        "node/no-missing-require": 2,
-        "node/no-unpublished-require": 2,
-        "node/no-unsupported-features": [2, {"version": 4}],
-        "node/shebang": 2
     }
 }

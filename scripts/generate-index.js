@@ -3,38 +3,49 @@
  * @copyright 2015 Toru Nagashima. All rights reserved.
  * See LICENSE file in root directory for full license.
  */
+"use strict"
 
-"use strict";
+//------------------------------------------------------------------------------
+// Requirements
+//------------------------------------------------------------------------------
 
-const fs = require("fs");
-const path = require("path");
+var fs = require("fs")
+var path = require("path")
 
-const ruleNames = fs
+//------------------------------------------------------------------------------
+// Main
+//------------------------------------------------------------------------------
+
+var ruleNames = fs
     .readdirSync(path.join(__dirname, "../lib/rules"))
-    .map(name => path.basename(name, ".js"));
+    .map(function(name) {
+        return path.basename(name, ".js")
+    })
 
-const rules = ruleNames
-    .map(name => `        "${name}": require("./lib/rules/${name}")`)
-    .join(",\n");
+var rules = ruleNames
+    .map(function(name) {
+        return "\"" + name + "\": require(\"./lib/rules/" + name + "\"),"
+    })
+    .join("\n        ")
 
-const rulesConfig = ruleNames
-    .map(name => `        "${name}": 0`)
-    .join(",\n");
+var rulesConfig = ruleNames
+    .map(function(name) {
+        return "\"" + name + "\": 0,"
+    })
+    .join("\n        ")
 
-fs.writeFileSync(path.join(__dirname, "../index.js"), `/**
- * @author Toru Nagashima
- * @copyright 2015 Toru Nagashima. All rights reserved.
- * See LICENSE file in root directory for full license.
- */
-
-"use strict\";
-
-module.exports = {
-    rules: {
-${rules}
-    },
-    rulesConfig: {
-${rulesConfig}
-    }
-};
-`);
+fs.writeFileSync(path.join(__dirname, "../index.js"), "/**\n\
+ * @author Toru Nagashima\n\
+ * @copyright 2015 Toru Nagashima. All rights reserved.\n\
+ * See LICENSE file in root directory for full license.\n\
+ */\n\
+\"use strict\"\n\
+\n\
+module.exports = {\n\
+    rules: {\n\
+        " + rules + "\n\
+    },\n\
+    rulesConfig: {\n\
+        " + rulesConfig + "\n\
+    },\n\
+}\n")

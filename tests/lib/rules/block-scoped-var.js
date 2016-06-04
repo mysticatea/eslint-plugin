@@ -4,10 +4,10 @@
  * See LICENSE file in root directory for full license.
  */
 
-"use strict";
+"use strict"
 
-const RuleTester = require("eslint").RuleTester;
-const rule = require("../../../lib/rules/block-scoped-var");
+var RuleTester = require("eslint").RuleTester
+var rule = require("../../../lib/rules/block-scoped-var");
 
 (new RuleTester()).run("block-scoped-var", rule, {
     valid: [
@@ -15,9 +15,8 @@ const rule = require("../../../lib/rules/block-scoped-var");
         {code: "{ var a; a; } { { var a; a; } { var a; { a; } } }"},
         {code: "if (true) { var a; a; } else if (true) { var a; a; } else { var a; a; }"},
         {code: "while (true) { var a; a; } do { var a; a; } while (true);"},
-        {code: "for (var a = 0; a; a) { a; var b; b; } for (var a in []) { a; var b; b; } for (var a of []) { a; var b; b; }", ecmaFeatures: {forOf: true}},
+        {code: "for (var a = 0; a; a) { a; var b; b; } for (var a in []) { a; var b; b; } for (var a of []) { a; var b; b; }", env: {es6: true}},
         {code: "switch (0) { case 0: var a; a; case 1: a; default: a; } { var a; a; }"},
-        {code: "{ var {x: [a = 0]} = {x: [1]}; a; } { var a; ({x: [a = 0]}) = {x: [1]}; }", ecmaFeatures: {destructuring: true}},
 
         // below should be warned by no-shadow rule.
         // this rule ignores those merely.
@@ -25,8 +24,8 @@ const rule = require("../../../lib/rules/block-scoped-var");
         {code: "var a; function foo(a) { }"},
         {code: "function a() { var a; }"},
         {code: "(function a() { var a; })();"},
-        {code: "class a { foo() { var a; } }", ecmaFeatures: {classes: true}},
-        {code: "(class a { foo() { var a; } })();", ecmaFeatures: {classes: true}}
+        {code: "class a { foo() { var a; } }", env: {es6: true}},
+        {code: "(class a { foo() { var a; } })();", env: {es6: true}},
     ],
     invalid: [
         {code: "{ var a; a; } a;", errors: [{type: "Identifier", message: "\"a\" is not defined."}]},
@@ -37,10 +36,11 @@ const rule = require("../../../lib/rules/block-scoped-var");
         {code: "for (var a; a; a) { var a; }", errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
         {code: "{ var a; function a() {} }", errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
         {code: "function foo(a) { var a; } var a;", errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
-        {code: "import a from \"a\"; var a;", ecmaFeatures: {modules: true}, errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
-        {code: "import a from \"a\"; import a from \"b/a\";", ecmaFeatures: {modules: true}, errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
+        {code: "import a from \"a\"; var a;", parserOptions: {sourceType: "module"}, errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
+        {code: "import a from \"a\"; import a from \"b/a\";", parserOptions: {sourceType: "module"}, errors: [{type: "Identifier", message: "\"a\" is already defined."}]},
         {code: "{ var a; { var a; } }", errors: [{type: "Identifier", message: "\"a\" is already defined in the upper scope."}]},
-        {code: "import a from \"a\"; { var a; }", ecmaFeatures: {modules: true}, errors: [{type: "Identifier", message: "\"a\" is already defined in the upper scope."}]},
-        {code: "{ var a; } { var a; a; }", errors: [{type: "Identifier", message: "\"a\" is defined but never used.", column: 7}]}
-    ]
-});
+        {code: "import a from \"a\"; { var a; }", parserOptions: {sourceType: "module"}, errors: [{type: "Identifier", message: "\"a\" is already defined in the upper scope."}]},
+        {code: "{ var a; } { var a; a; }", errors: [{type: "Identifier", message: "\"a\" is defined but never used.", column: 7}]},
+        {code: "{ var {x: [a = 0]} = {x: [1]}; a; } { var a; ({x: [a = 0]} = {x: [1]}); }", env: {es6: true}, errors: [{type: "Identifier", message: "\"a\" is defined but never used.", column: 43}]},
+    ],
+})

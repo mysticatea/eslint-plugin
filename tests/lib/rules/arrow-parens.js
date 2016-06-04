@@ -4,47 +4,47 @@
  * See LICENSE file in root directory for full license.
  */
 
-"use strict";
+"use strict"
 
-const RuleTester = require("eslint").RuleTester;
-const rule = require("../../../lib/rules/arrow-parens");
+var RuleTester = require("eslint").RuleTester
+var rule = require("../../../lib/rules/arrow-parens");
 
 (new RuleTester()).run("arrow-parens", rule, {
     valid: [
-        {code: "var foo = (x) => x;", ecmaFeatures: {arrowFunctions: true}},
-        {code: "var foo = (x => x);", ecmaFeatures: {arrowFunctions: true}},
-        {code: "foo(x => x);", ecmaFeatures: {arrowFunctions: true}},
-        {code: "foo(() => 0);", ecmaFeatures: {arrowFunctions: true}},
-        {code: "foo((x, y) => x);", ecmaFeatures: {arrowFunctions: true}},
-        {code: "foo((x = 0) => x);", ecmaFeatures: {arrowFunctions: true, defaultParams: true}},
-        {code: "foo(([x]) => x);", ecmaFeatures: {arrowFunctions: true, destructuring: true}},
-        {code: "foo(({x}) => x);", ecmaFeatures: {arrowFunctions: true, destructuring: true}},
-        {code: "foo(x => x, (x) => x);", ecmaFeatures: {arrowFunctions: true}},
-        {code: "foo(\n    (x) => x,\n    (x) => x\n);", ecmaFeatures: {arrowFunctions: true}}
+        {code: "var foo = (x) => x;", env: {es6: true}},
+        {code: "var foo = (x => x);", env: {es6: true}},
+        {code: "foo(x => x);", env: {es6: true}},
+        {code: "foo(() => 0);", env: {es6: true}},
+        {code: "foo((x, y) => x);", env: {es6: true}},
+        {code: "foo((x = 0) => x);", env: {es6: true}},
+        {code: "foo(([x]) => x);", env: {es6: true}},
+        {code: "foo(({x}) => x);", env: {es6: true}},
+        {code: "foo(x => x, (x) => x);", env: {es6: true}},
+        {code: "foo(\n    (x) => x,\n    (x) => x\n);", env: {es6: true}},
     ],
     invalid: [
         {
             code: "var foo = x => x;",
-            ecmaFeatures: {arrowFunctions: true},
-            errors: [{type: "ArrowFunctionExpression", message: "enclose the argument with parens."}]
+            env: {es6: true},
+            errors: [{type: "ArrowFunctionExpression", message: "enclose the argument with parens."}],
         },
         {
             code: "foo(x => x, x => x);",
-            ecmaFeatures: {arrowFunctions: true},
-            errors: [{type: "ArrowFunctionExpression", message: "enclose the argument with parens."}]
+            env: {es6: true},
+            errors: [{type: "ArrowFunctionExpression", message: "enclose the argument with parens."}],
         },
         {
             code: "foo(\n    x => x,\n    x => x\n);",
-            ecmaFeatures: {arrowFunctions: true},
+            env: {es6: true},
             errors: [
                 {type: "ArrowFunctionExpression", message: "enclose the argument with parens."},
-                {type: "ArrowFunctionExpression", message: "enclose the argument with parens."}
-            ]
+                {type: "ArrowFunctionExpression", message: "enclose the argument with parens."},
+            ],
         },
         {
             code: "foo((x) => x);",
-            ecmaFeatures: {arrowFunctions: true},
-            errors: [{type: "ArrowFunctionExpression", message: "remove redundant parens of the argument list."}]
-        }
-    ]
-});
+            env: {es6: true},
+            errors: [{type: "ArrowFunctionExpression", message: "remove redundant parens of the argument list."}],
+        },
+    ],
+})
