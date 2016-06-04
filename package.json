@@ -13,12 +13,14 @@
     "preversion": "run-s test build",
     "postversion": "git push && git push --tags",
     "clean": "rimraf coverage index.js",
-    "lint": "eslint src tests scripts",
+    "lint": "eslint lib tests scripts",
     "prebuild": "npm run clean",
     "build": "node scripts/generate-index.js",
     "pretest": "npm run lint",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- tests/lib/**/*.js",
-    "watch": "mocha \"tests/**/*.js\" --watch --growl",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- tests/lib/**/*.js --reporter progress",
+    "watch": "run-p watch:*",
+    "watch:test": "chokidar \"{lib,scripts,tests}/**/*.js\" --initial --command \"npm test\"",
+    "watch:coverage": "wait-on coverage/lcov-report/index.html && opener coverage/lcov-report/index.html",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "peerDependencies": {
@@ -26,13 +28,16 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "chokidar-cli": "^1.2.0",
     "coveralls": "^2.11.9",
     "eslint": "^2.11.1",
     "eslint-config-mysticatea": "^4.0.0",
     "istanbul": "^0.4.3",
     "mocha": "^2.5.3",
     "npm-run-all": "^2.1.1",
-    "rimraf": "^2.5.2"
+    "opener": "^1.4.1",
+    "rimraf": "^2.5.2",
+    "wait-on": "^1.5.2"
   },
   "repository": {
     "type": "git",
