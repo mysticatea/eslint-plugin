@@ -31,5 +31,5 @@ npm install --save-dev eslint eslint-plugin-mysticatea
 
 ## Rules
 
-- [arrow-parens](docs/arrow-parens.md) - Enforce parens of argument lists (excludes too redundant parens).
-- [block-scoped-var](docs/block-scoped-var.md) - The complete emulation of block-scoping for `var`.
+- [arrow-parens](docs/rules/arrow-parens.md) - Enforce parens of argument lists (excludes too redundant parens).
+- [block-scoped-var](docs/rules/block-scoped-var.md) - The complete emulation of block-scoping for `var`.
