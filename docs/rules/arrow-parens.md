@@ -1,5 +1,7 @@
 # Require parens of the arrow function argument list. (arrow-parens)
 
+(fixable) The `--fix` option on the [command line](http://eslint.org/docs/user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
 ## Rule Details
 
 This rule aims to flag argument lists which don't have parens.

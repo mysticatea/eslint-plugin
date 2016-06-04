@@ -25,26 +25,36 @@ var rule = require("../../../lib/rules/arrow-parens");
     invalid: [
         {
             code: "var foo = x => x;",
+            output: "var foo = (x) => x;",
             env: {es6: true},
-            errors: [{type: "ArrowFunctionExpression", message: "enclose the argument with parens."}],
+            errors: [
+                {column: 11, message: "Expected to enclose this argument with parentheses."},
+            ],
         },
         {
             code: "foo(x => x, x => x);",
+            output: "foo(x => x, (x) => x);",
             env: {es6: true},
-            errors: [{type: "ArrowFunctionExpression", message: "enclose the argument with parens."}],
+            errors: [
+                {column: 13, message: "Expected to enclose this argument with parentheses."},
+            ],
         },
         {
             code: "foo(\n    x => x,\n    x => x\n);",
+            output: "foo(\n    (x) => x,\n    (x) => x\n);",
             env: {es6: true},
             errors: [
-                {type: "ArrowFunctionExpression", message: "enclose the argument with parens."},
-                {type: "ArrowFunctionExpression", message: "enclose the argument with parens."},
+                {line: 2, message: "Expected to enclose this argument with parentheses."},
+                {line: 3, message: "Expected to enclose this argument with parentheses."},
             ],
         },
         {
             code: "foo((x) => x);",
+            output: "foo(x => x);",
             env: {es6: true},
-            errors: [{type: "ArrowFunctionExpression", message: "remove redundant parens of the argument list."}],
+            errors: [
+                {message: "Unexpected parentheses enclosing this argument."},
+            ],
         },
     ],
 })
