@@ -17,6 +17,7 @@ var rule = require("../../../lib/rules/block-scoped-var");
         {code: "while (true) { var a; a; } do { var a; a; } while (true);"},
         {code: "for (var a = 0; a; a) { a; var b; b; } for (var a in []) { a; var b; b; } for (var a of []) { a; var b; b; }", env: {es6: true}},
         {code: "switch (0) { case 0: var a; a; case 1: a; default: a; } { var a; a; }"},
+        {code: "var a = {}; module.exports = a"},
 
         // below should be warned by no-shadow rule.
         // this rule ignores those merely.
