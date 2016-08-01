@@ -28,6 +28,7 @@ npm install --save-dev eslint eslint-plugin-mysticatea
         "mysticatea/arrow-parens": "error",
         "mysticatea/block-scoped-var": "error",
         "mysticatea/no-literal-call": "error",
+        "mysticatea/no-undefined": "error",
         "mysticatea/no-use-ignored-vars": "error",
         "mysticatea/no-useless-rest-spread": "error",
         "arrow-parens": "off",
@@ -42,5 +43,6 @@ npm install --save-dev eslint eslint-plugin-mysticatea
 - [arrow-parens](docs/rules/arrow-parens.md) - Enforce parens of argument lists (excludes too redundant parens) (fixable).
 - [block-scoped-var](docs/rules/block-scoped-var.md) - The complete emulation of block-scoping for `var`.
 - [no-literal-call](docs/rules/no-literal-call.md) - Disallow a call of a literal.
+- [no-undefined](docs/rules/no-undefined.md) - disallow the declarations of `undefined`.
 - [no-use-ignored-vars](docs/rules/no-use-ignored-vars.md) - Disallow a use of ignored variables.
 - [no-useless-rest-spread](docs/rules/no-useless-rest-spread.md) - Disallow unnecessary rest/spread operators (fixable).
