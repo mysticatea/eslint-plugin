@@ -9,14 +9,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-use-ignored-vars")
-var RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/no-use-ignored-vars")
+const RuleTester = require("eslint").RuleTester
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run("no-use-ignored-vars", rule, {
     valid: [

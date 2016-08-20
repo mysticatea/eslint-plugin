@@ -1,0 +1,5 @@
+{
+    "extends": ["mysticatea", "mysticatea/node"],
+    "rules": {
+    }
+}

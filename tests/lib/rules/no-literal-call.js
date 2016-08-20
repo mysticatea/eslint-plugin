@@ -8,14 +8,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-literal-call")
-var RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/no-literal-call")
+const RuleTester = require("eslint").RuleTester
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run("no-literal-call", rule, {
     valid: [

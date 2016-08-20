@@ -6,8 +6,8 @@
 
 "use strict"
 
-var RuleTester = require("eslint").RuleTester
-var rule = require("../../../lib/rules/block-scoped-var");
+const RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/block-scoped-var");
 
 (new RuleTester()).run("block-scoped-var", rule, {
     valid: [

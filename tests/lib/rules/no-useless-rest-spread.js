@@ -8,14 +8,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-useless-rest-spread")
-var RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/no-useless-rest-spread")
+const RuleTester = require("eslint").RuleTester
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run("no-useless-rest-spread", rule, {
     valid: [

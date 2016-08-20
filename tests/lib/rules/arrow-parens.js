@@ -6,8 +6,8 @@
 
 "use strict"
 
-var RuleTester = require("eslint").RuleTester
-var rule = require("../../../lib/rules/arrow-parens");
+const RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/arrow-parens");
 
 (new RuleTester()).run("arrow-parens", rule, {
     valid: [

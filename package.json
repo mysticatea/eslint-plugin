@@ -3,7 +3,7 @@
   "version": "3.0.2",
   "description": "ESLint rules for me.",
   "engines": {
-    "node": "^0.10.0 || ^0.12.0 || >=4.0.0"
+    "node": "^4.0.0 || >=6.0.0"
   },
   "main": "index.js",
   "files": [
@@ -17,26 +17,26 @@
     "prebuild": "npm run clean",
     "build": "node scripts/generate-index.js",
     "pretest": "npm run lint",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- tests/lib/**/*.js --reporter progress",
+    "test": "nyc mocha \"tests/lib/**/*.js\" --reporter progress",
     "watch": "run-p watch:*",
-    "watch:test": "chokidar \"{lib,scripts,tests}/**/*.js\" --initial --command \"npm test\"",
+    "watch:test": "chokidar \"{lib,scripts,tests}/**/*.js\" --initial --command \"npm test && nyc report --reporter=lcov\"",
     "watch:coverage": "wait-on coverage/lcov-report/index.html && opener coverage/lcov-report/index.html",
-    "coveralls": "cat coverage/lcov.info | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "peerDependencies": {
-    "eslint": ">=2.0.0"
+    "eslint": ">=3.1.0"
   },
   "dependencies": {},
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
-    "coveralls": "^2.11.9",
-    "eslint": "^2.11.1",
-    "eslint-config-mysticatea": "^4.0.0",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.5.3",
-    "npm-run-all": "^2.1.1",
+    "coveralls": "^2.11.12",
+    "eslint": "^3.3.1",
+    "eslint-config-mysticatea": "^5.0.0",
+    "nyc": "^8.1.0",
+    "mocha": "^3.0.2",
+    "npm-run-all": "^3.0.0",
     "opener": "^1.4.1",
-    "rimraf": "^2.5.2",
+    "rimraf": "^2.5.4",
     "wait-on": "^1.5.2"
   },
   "repository": {
