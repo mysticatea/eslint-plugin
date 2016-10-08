@@ -27,6 +27,7 @@ npm install --save-dev eslint eslint-plugin-mysticatea
     "rules": {
         "mysticatea/arrow-parens": "error",
         "mysticatea/block-scoped-var": "error",
+        "mysticatea/no-instanceof-wrapper": "error",
         "mysticatea/no-literal-call": "error",
         "mysticatea/no-this-in-static": "error",
         "mysticatea/no-use-ignored-vars": "error",
@@ -42,6 +43,7 @@ npm install --save-dev eslint eslint-plugin-mysticatea
 
 - [arrow-parens](docs/rules/arrow-parens.md) - Enforce parens of argument lists (excludes too redundant parens) (fixable).
 - [block-scoped-var](docs/rules/block-scoped-var.md) - The complete emulation of block-scoping for `var`.
+- [no-instanceof-wrapper](docs/rules/no-instanceof-wrapper.md) - Disallow 'instanceof' for wrapper objects.
 - [no-literal-call](docs/rules/no-literal-call.md) - Disallow a call of a literal.
 - [no-this-in-static](docs/rules/no-this-in-static.md) - Disallow `this`/`super` in static methods.
 - [no-use-ignored-vars](docs/rules/no-use-ignored-vars.md) - Disallow a use of ignored variables.
