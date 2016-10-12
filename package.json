@@ -21,7 +21,7 @@
     "watch": "run-p watch:*",
     "watch:test": "chokidar \"{lib,scripts,tests}/**/*.js\" --initial --command \"npm test && nyc report --reporter=lcov\"",
     "watch:coverage": "wait-on coverage/lcov-report/index.html && opener coverage/lcov-report/index.html",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "codecov": "nyc report --reporter lcovonly && codecov"
   },
   "peerDependencies": {
     "eslint": ">=3.1.0"
@@ -29,12 +29,12 @@
   "dependencies": {},
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
-    "coveralls": "^2.11.12",
+    "codecov": "^1.0.1",
     "eslint": "^3.3.1",
     "eslint-config-mysticatea": "^5.0.0",
-    "nyc": "^8.1.0",
     "mocha": "^3.0.2",
     "npm-run-all": "^3.0.0",
+    "nyc": "^8.1.0",
     "opener": "^1.4.1",
     "rimraf": "^2.5.4",
     "wait-on": "^1.5.2"
