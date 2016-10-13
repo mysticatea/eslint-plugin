@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/mysticatea/eslint-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/mysticatea/eslint-plugin)
 [![Dependency Status](https://david-dm.org/mysticatea/eslint-plugin.svg)](https://david-dm.org/mysticatea/eslint-plugin)
 
-Additional rules of ESLint.
+Additional ESLint rules.
 
 ## :cd: Installation
 
@@ -25,14 +25,14 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 
 ### Rules
 
-- [arrow-parens](docs/rules/arrow-parens.md) enforces parens of argument lists (excludes too redundant parens) (fixable).
-- [block-scoped-var](docs/rules/block-scoped-var.md) handles variables which are declared by `var` declaration as block-scoped. It disallows redeclarations, uses from outside of the scope, shadowing.
-- [no-instanceof-array](docs/rules/no-instanceof-array.md) disallows 'instanceof' for Array (fixable).
-- [no-instanceof-wrapper](docs/rules/no-instanceof-wrapper.md) disallows 'instanceof' for wrapper objects (fixable).
-- [no-literal-call](docs/rules/no-literal-call.md) disallows a call of a literal.
-- [no-this-in-static](docs/rules/no-this-in-static.md) disallows `this`/`super` in static methods.
-- [no-use-ignored-vars](docs/rules/no-use-ignored-vars.md) disallows a use of ignored variables.
-- [no-useless-rest-spread](docs/rules/no-useless-rest-spread.md) disallows unnecessary rest/spread operators (fixable).
+- [mysticatea/arrow-parens](docs/rules/arrow-parens.md) enforces parens of argument lists (excludes too redundant parens) (fixable).
+- [mysticatea/block-scoped-var](docs/rules/block-scoped-var.md) handles variables which are declared by `var` declaration as block-scoped. It disallows redeclarations, uses from outside of the scope, shadowing.
+- [mysticatea/no-instanceof-array](docs/rules/no-instanceof-array.md) disallows 'instanceof' for Array (fixable).
+- [mysticatea/no-instanceof-wrapper](docs/rules/no-instanceof-wrapper.md) disallows 'instanceof' for wrapper objects (fixable).
+- [mysticatea/no-literal-call](docs/rules/no-literal-call.md) disallows a call of a literal.
+- [mysticatea/no-this-in-static](docs/rules/no-this-in-static.md) disallows `this`/`super` in static methods.
+- [mysticatea/no-use-ignored-vars](docs/rules/no-use-ignored-vars.md) disallows a use of ignored variables.
+- [mysticatea/no-useless-rest-spread](docs/rules/no-useless-rest-spread.md) disallows unnecessary rest/spread operators (fixable).
 
 ### Example
 
