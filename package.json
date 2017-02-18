@@ -16,14 +16,12 @@
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
     "codecov": "^1.0.1",
-    "eslint": "^3.10.2",
+    "eslint": "^3.15.0",
     "eslint-config-mysticatea": "^5.0.0",
     "mocha": "^3.0.2",
-    "npm-run-all": "^3.0.0",
-    "nyc": "^8.1.0",
+    "nyc": "^10.1.2",
     "opener": "^1.4.1",
-    "rimraf": "^2.5.4",
-    "wait-on": "^1.5.2"
+    "rimraf": "^2.5.4"
   },
   "scripts": {
     "preversion": "run-s clean build test",
