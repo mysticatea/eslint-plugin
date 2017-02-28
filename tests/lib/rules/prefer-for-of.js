@@ -150,5 +150,15 @@ tester.run("prefer-for-of", rule, {
             output: "function wrap() { for (let value of list) { return } }",
             errors: ["Expected for-of statement."],
         },
+        {
+            code: "for (let i = 0, end = list.length; i < end;i = 1 + i) { const value = list[i]; }",
+            output: "for (let value of list) { }",
+            errors: ["Expected for-of statement."],
+        },
+        {
+            code: "for (let i = 0, length = list.length; i < length; i = i + 1) { const value = list[i]; }",
+            output: "for (let value of list) { }",
+            errors: ["Expected for-of statement."],
+        },
     ],
 })

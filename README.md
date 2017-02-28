@@ -33,6 +33,7 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 - [mysticatea/no-this-in-static](docs/rules/no-this-in-static.md) disallows `this`/`super` in static methods.
 - [mysticatea/no-use-ignored-vars](docs/rules/no-use-ignored-vars.md) disallows a use of ignored variables.
 - [mysticatea/no-useless-rest-spread](docs/rules/no-useless-rest-spread.md) disallows unnecessary rest/spread operators (fixable).
+- [mysticatea/prefer-for-of](docs/rules/prefer-for-of.md) requires `for-of` statements instead of `Array#forEach` or something like (fixable).
 
 ### Example
 
@@ -52,6 +53,7 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
         "mysticatea/no-this-in-static": "error",
         "mysticatea/no-use-ignored-vars": "error",
         "mysticatea/no-useless-rest-spread": "error",
+        "mysticatea/prefer-for-of": "error",
         "arrow-parens": "off",
         "block-scoped-var": "off",
         "no-redeclare": "off"
