@@ -2,7 +2,6 @@
  * @fileoverview Tests for no-use-ignored-vars rule.
  * @author Toru Nagashima
  */
-
 "use strict"
 
 //------------------------------------------------------------------------------
