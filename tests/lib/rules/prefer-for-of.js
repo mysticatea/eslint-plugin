@@ -33,6 +33,7 @@ tester.run("prefer-for-of", rule, {
         "for (let i = 0; i < list.length; i += 2) { const value = list[i]; }",
         "forEach(function(value) {})",
         "forEach((value) => {})",
+        "for (let i = 0; i < list.length; ++i) { const value = list[i]; list[i] = 0 }",
     ],
     invalid: [
         {
