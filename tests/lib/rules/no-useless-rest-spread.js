@@ -46,11 +46,12 @@ ruleTester.run("no-useless-rest-spread", rule, {
             output: "foo(...a, x, y, x)",
             errors: ["Unexpected a spread operator."],
         },
-        {
-            code: "let [a, ...[b, c, ...d]] = obj",
-            output: "let [a, b, c, ...d] = obj",
-            errors: ["Unexpected a rest operator."],
-        },
+        // Espree threw a syntax error.
+        // {
+        //     code: "let [a, ...[b, c, ...d]] = obj",
+        //     output: "let [a, b, c, ...d] = obj",
+        //     errors: ["Unexpected a rest operator."],
+        // },
         // Espree threw a syntax error.
         // {
         //     code: "function foo(a, ...[b, c, ...d]) {}",
@@ -80,11 +81,12 @@ ruleTester.run("no-useless-rest-spread", rule, {
             output: "foo(...a, x, y, x)",
             errors: ["Unexpected a spread operator."],
         },
-        {
-            code: "let [a, ...[b, c, ]] = obj",
-            output: "let [a, b, c] = obj",
-            errors: ["Unexpected a rest operator."],
-        },
+        // Espree threw a syntax error.
+        // {
+        //     code: "let [a, ...[b, c, ]] = obj",
+        //     output: "let [a, b, c] = obj",
+        //     errors: ["Unexpected a rest operator."],
+        // },
         // Espree threw a syntax error.
         // {
         //     code: "function foo(a, ...[b, c, ]) {}",
@@ -114,11 +116,12 @@ ruleTester.run("no-useless-rest-spread", rule, {
             output: "foo(...a)",
             errors: ["Unexpected a spread operator."],
         },
-        {
-            code: "let [a, ...[]] = obj",
-            output: "let [a] = obj",
-            errors: ["Unexpected a rest operator."],
-        },
+        // Espree threw a syntax error.
+        // {
+        //     code: "let [a, ...[]] = obj",
+        //     output: "let [a] = obj",
+        //     errors: ["Unexpected a rest operator."],
+        // },
         // Espree threw a syntax error.
         // {
         //     code: "function foo(a, ...[b, c, ]) {}",
