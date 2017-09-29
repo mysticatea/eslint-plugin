@@ -9,8 +9,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/prefer-for-of")
 const RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/prefer-for-of")
 
 //------------------------------------------------------------------------------
 // Tests

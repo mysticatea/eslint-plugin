@@ -8,8 +8,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-literal-call")
 const RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/no-literal-call")
 
 //------------------------------------------------------------------------------
 // Tests

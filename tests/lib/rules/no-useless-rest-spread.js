@@ -8,8 +8,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-useless-rest-spread")
 const RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/no-useless-rest-spread")
 
 //------------------------------------------------------------------------------
 // Tests
