@@ -61,12 +61,6 @@ ruleTester.run("no-useless-rest-spread", rule, {
             output: "let obj = {x, y, x, ...b}",
             errors: ["Unexpected a spread property."],
         },
-        // Espree threw a syntax error.
-        // {
-        //     code: "let {a, ...{b, c, ...d}} = obj",
-        //     output: "let {a, b, c, ...d} = obj",
-        //     errors: ["Unexpected a rest property."],
-        // },
 
         // Trailing commas
         {
@@ -94,12 +88,6 @@ ruleTester.run("no-useless-rest-spread", rule, {
             output: "let obj = {x, y, x, ...b}",
             errors: ["Unexpected a spread property."],
         },
-        // Espree threw a syntax error.
-        // {
-        //     code: "let {a, ...{b, c, }} = obj",
-        //     output: "let {a, b, c} = obj",
-        //     errors: ["Unexpected a rest property."],
-        // },
 
         // Empty literals
         {
@@ -127,11 +115,27 @@ ruleTester.run("no-useless-rest-spread", rule, {
             output: "let obj = { ...b}",
             errors: ["Unexpected a spread property."],
         },
-        // Espree threw a syntax error.
-        // {
-        //     code: "let {a, ...{}} = obj",
-        //     output: "let {a} = obj",
-        //     errors: ["Unexpected a rest property."],
-        // },
+    ],
+})
+
+const babelRuleTester = new RuleTester({ parser: "babel-parser" })
+babelRuleTester.run("no-useless-rest-spread with babel", rule, {
+    valid: [],
+    invalid: [
+        {
+            code: "let {a, ...{b, c, ...d}} = obj",
+            output: "let {a, b, c, ...d} = obj",
+            errors: ["Unexpected a rest property."],
+        },
+        {
+            code: "let {a, ...{b, c, }} = obj",
+            output: "let {a, b, c} = obj",
+            errors: ["Unexpected a rest property."],
+        },
+        {
+            code: "let {a, ...{}} = obj",
+            output: "let {a} = obj",
+            errors: ["Unexpected a rest property."],
+        },
     ],
 })
