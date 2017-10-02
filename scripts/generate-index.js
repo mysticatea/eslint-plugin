@@ -26,9 +26,9 @@ fs.writeFileSync(path.resolve(__dirname, "../index.js"), `/**
 module.exports = {
     rules: {
 ${fs.readdirSync(path.resolve(__dirname, "../lib/rules"))
-    .map(fileName => path.basename(fileName, ".js"))
-    .map(ruleId => `        "${ruleId}": require("./lib/rules/${ruleId}"),`)
-    .join("\n")}
+        .map(fileName => path.basename(fileName, ".js"))
+        .map(ruleId => `        "${ruleId}": require("./lib/rules/${ruleId}"),`)
+        .join("\n")}
     },
 }
 `)

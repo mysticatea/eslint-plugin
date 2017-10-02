@@ -15,11 +15,11 @@
   "dependencies": {},
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
-    "codecov": "^1.0.1",
-    "eslint": "^3.16.1",
-    "eslint-config-mysticatea": "^8.0.0",
+    "codecov": "^2.3.0",
+    "eslint": "^4.7.2",
+    "eslint-config-mysticatea": "^12.0.0",
     "mocha": "^3.0.2",
-    "nyc": "^10.1.2",
+    "nyc": "^11.2.1",
     "opener": "^1.4.1",
     "rimraf": "^2.5.4"
   },

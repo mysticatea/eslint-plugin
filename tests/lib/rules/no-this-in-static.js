@@ -16,7 +16,7 @@ const rule = require("../../../lib/rules/no-this-in-static")
 // Tests
 //------------------------------------------------------------------------------
 
-const tester = new RuleTester({parserOptions: {ecmaVersion: 6}})
+const tester = new RuleTester({ parserOptions: { ecmaVersion: 6 } })
 
 tester.run("no-this-in-static", rule, {
     valid: [

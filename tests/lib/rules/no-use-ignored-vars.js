@@ -8,8 +8,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-use-ignored-vars")
 const RuleTester = require("eslint").RuleTester
+const rule = require("../../../lib/rules/no-use-ignored-vars")
 
 //------------------------------------------------------------------------------
 // Tests
