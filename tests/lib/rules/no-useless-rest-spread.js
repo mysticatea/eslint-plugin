@@ -42,6 +42,11 @@ ruleTester.run("no-useless-rest-spread", rule, {
             errors: ["Unexpected a spread operator."],
         },
         {
+            code: "let list = [...[,,,], b]",
+            output: "let list = [undefined, undefined, undefined, b]",
+            errors: ["Unexpected a spread operator."],
+        },
+        {
             code: "foo(...a, ...[x, y, x])",
             output: "foo(...a, x, y, x)",
             errors: ["Unexpected a spread operator."],
