@@ -35,6 +35,7 @@ ruleTester.run("no-useless-rest-spread", rule, {
         "foo(...{a}, ...{b})",
         "let list = [...{a}]",
         "let obj = {...[a]}",
+        "f(...g())",
     ],
     invalid: [
         {
