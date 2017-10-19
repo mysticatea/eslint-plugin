@@ -84,7 +84,7 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 
 ## :newspaper: Changelog
 
-- [GitHub Releases](https://github.com/mysticatea/eslint-plugin-mysticatea/releases)
+- [GitHub Releases](https://github.com/mysticatea/eslint-plugin/releases)
 
 ## :muscle: Contributing
 
