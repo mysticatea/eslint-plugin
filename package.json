@@ -15,14 +15,13 @@
   "dependencies": {},
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
-    "codecov": "^2.3.0",
-    "eslint": "^4.7.2",
-    "eslint-config-mysticatea": "^12.0.0",
-    "mocha": "^4.0.0",
-    "npm-run-all": "^4.1.1",
-    "nyc": "^11.2.1",
-    "opener": "^1.4.1",
-    "rimraf": "^2.5.4"
+    "codecov": "^3.0.1",
+    "eslint": "^4.19.1",
+    "mocha": "^5.1.1",
+    "npm-run-all": "^4.1.2",
+    "nyc": "^11.7.1",
+    "opener": "^1.4.3",
+    "rimraf": "^2.6.2"
   },
   "scripts": {
     "preversion": "run-s clean build test",
