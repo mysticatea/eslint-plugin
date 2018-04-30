@@ -1,6 +1,5 @@
 /.nyc_output
 /coverage
-/index.js
 /node_modules
 /npm-debug.log
 /test.js

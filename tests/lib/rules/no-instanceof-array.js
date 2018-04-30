@@ -28,7 +28,9 @@ tester.run("no-instanceof-array", rule, {
         {
             code: "x instanceof Array",
             output: "Array.isArray(x)",
-            errors: ["Unexpected 'instanceof' operator. Use 'Array.isArray' instead."],
+            errors: [
+                "Unexpected 'instanceof' operator. Use 'Array.isArray' instead.",
+            ],
         },
     ],
 })

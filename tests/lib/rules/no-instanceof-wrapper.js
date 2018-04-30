@@ -20,51 +20,66 @@ const tester = new RuleTester()
 
 tester.run("no-instanceof-wrapper", rule, {
     valid: [
-        "typeof x === \"boolean\"",
-        "typeof x === \"number\"",
-        "typeof x === \"string\"",
-        "typeof x === \"object\"",
-        "typeof x === \"function\"",
-        { code: "typeof x === \"symbol\"", env: { es6: true } },
+        'typeof x === "boolean"',
+        'typeof x === "number"',
+        'typeof x === "string"',
+        'typeof x === "object"',
+        'typeof x === "function"',
+        { code: 'typeof x === "symbol"', env: { es6: true } },
         "function foo(Boolean) { x instanceof Boolean }",
         "function foo(Number) { x instanceof Number }",
         "function foo(String) { x instanceof String }",
         "function foo(Object) { x instanceof Object }",
         "function foo(Function) { x instanceof Function }",
-        { code: "function foo(Symbol) { x instanceof Symbol }", env: { es6: true } },
+        {
+            code: "function foo(Symbol) { x instanceof Symbol }",
+            env: { es6: true },
+        },
         "Boolean",
     ],
     invalid: [
         {
             code: "x instanceof Boolean",
-            output: "typeof x === \"boolean\"",
-            errors: ["Unexpected 'instanceof' operator. Use 'typeof x === \"boolean\"' instead."],
+            output: 'typeof x === "boolean"',
+            errors: [
+                "Unexpected 'instanceof' operator. Use 'typeof x === \"boolean\"' instead.",
+            ],
         },
         {
             code: "x instanceof Number",
-            output: "typeof x === \"number\"",
-            errors: ["Unexpected 'instanceof' operator. Use 'typeof x === \"number\"' instead."],
+            output: 'typeof x === "number"',
+            errors: [
+                "Unexpected 'instanceof' operator. Use 'typeof x === \"number\"' instead.",
+            ],
         },
         {
             code: "x instanceof String",
-            output: "typeof x === \"string\"",
-            errors: ["Unexpected 'instanceof' operator. Use 'typeof x === \"string\"' instead."],
+            output: 'typeof x === "string"',
+            errors: [
+                "Unexpected 'instanceof' operator. Use 'typeof x === \"string\"' instead.",
+            ],
         },
         {
             code: "x instanceof Object",
-            output: "typeof x === \"object\"",
-            errors: ["Unexpected 'instanceof' operator. Use 'typeof x === \"object\"' instead."],
+            output: 'typeof x === "object"',
+            errors: [
+                "Unexpected 'instanceof' operator. Use 'typeof x === \"object\"' instead.",
+            ],
         },
         {
             code: "x instanceof Function",
-            output: "typeof x === \"function\"",
-            errors: ["Unexpected 'instanceof' operator. Use 'typeof x === \"function\"' instead."],
+            output: 'typeof x === "function"',
+            errors: [
+                "Unexpected 'instanceof' operator. Use 'typeof x === \"function\"' instead.",
+            ],
         },
         {
             code: "x instanceof Symbol",
-            output: "typeof x === \"symbol\"",
+            output: 'typeof x === "symbol"',
+            errors: [
+                "Unexpected 'instanceof' operator. Use 'typeof x === \"symbol\"' instead.",
+            ],
             env: { es6: true },
-            errors: ["Unexpected 'instanceof' operator. Use 'typeof x === \"symbol\"' instead."],
         },
     ],
 })

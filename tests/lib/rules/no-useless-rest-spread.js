@@ -108,11 +108,6 @@ ruleTester.run("no-useless-rest-spread", rule, {
             errors: ["Redundant rest element."],
         },
         {
-            code: "function foo(a, ...[b, c, ]) {}",
-            output: "function foo(a, b, c) {}",
-            errors: ["Redundant rest parameter."],
-        },
-        {
             code: "let obj = {...{}, ...b}",
             output: "let obj = { ...b}",
             errors: ["Redundant spread property."],
@@ -121,32 +116,27 @@ ruleTester.run("no-useless-rest-spread", rule, {
         // Don't auto-fix if the inner array has holes.
         {
             code: "let list = [a, ...[,]]",
-            output: "let list = [a, ...[,]]",
+            output: null,
             errors: ["Redundant spread element."],
         },
         {
             code: "let list = [a, ...[b,,c]]",
-            output: "let list = [a, ...[b,,c]]",
+            output: null,
             errors: ["Redundant spread element."],
         },
         {
             code: "foo(a, ...[,])",
-            output: "foo(a, ...[,])",
+            output: null,
             errors: ["Redundant spread element."],
         },
         {
             code: "let [a, ...[,]] = list",
-            output: "let [a, ...[,]] = list",
-            errors: ["Redundant rest element."],
-        },
-        {
-            code: "let [a, ...[,]] = list",
-            output: "let [a, ...[,]] = list",
+            output: null,
             errors: ["Redundant rest element."],
         },
         {
             code: "function foo(a, ...[,]) {}",
-            output: "function foo(a, ...[,]) {}",
+            output: null,
             errors: ["Redundant rest parameter."],
         },
     ],

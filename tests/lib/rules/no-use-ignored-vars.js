@@ -35,20 +35,28 @@ ruleTester.run("no-use-ignored-vars", rule, {
     invalid: [
         {
             code: "var _foo; doSomething(_foo)",
-            errors: ["Unexpected a use of '_foo'. This name is matched to ignored pattern."],
+            errors: [
+                "Unexpected a use of '_foo'. This name is matched to ignored pattern.",
+            ],
         },
         {
             code: "var _bar; doSomething(_bar)",
-            errors: ["Unexpected a use of '_bar'. This name is matched to ignored pattern."],
+            errors: [
+                "Unexpected a use of '_bar'. This name is matched to ignored pattern.",
+            ],
         },
         {
             code: "function a(_foo) { doSomething(_foo) }",
-            errors: ["Unexpected a use of '_foo'. This name is matched to ignored pattern."],
+            errors: [
+                "Unexpected a use of '_foo'. This name is matched to ignored pattern.",
+            ],
         },
         {
             code: "var x; doSomething(x)",
             options: ["x"],
-            errors: ["Unexpected a use of 'x'. This name is matched to ignored pattern."],
+            errors: [
+                "Unexpected a use of 'x'. This name is matched to ignored pattern.",
+            ],
         },
     ],
 })
