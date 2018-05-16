@@ -6,9 +6,7 @@
 
 module.exports = {
     configs: require("./lib/configs"),
-    processors: {
-        ".vue": require("eslint-plugin-vue").processors[".vue"],
-    },
+    processors: require("./lib/processors"),
     rules: require("./lib/rules"),
     utils: require("./lib/utils"),
 }
