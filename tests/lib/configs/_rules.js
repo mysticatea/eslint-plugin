@@ -41,18 +41,20 @@ module.exports = {
         )
 
         /* istanbul ignore next */
-        if (config.rules != null) {
-            for (const ruleId of Object.keys(config.rules)) {
-                const rule = allRules.get(ruleId)
-                if (rule == null) {
-                    throw new Error(`The '${ruleId}' rule does not exist.`)
-                }
-                if (deprecatedRuleNames.has(ruleId)) {
-                    throw new Error(`The '${ruleId}' rule was deprecated.`)
-                }
-                if (removedRuleNames.has(ruleId)) {
-                    throw new Error(`The '${ruleId}' rule was removed.`)
-                }
+        const ruleMap = allRules.getAllLoadedRules()
+        for (const ruleId of [].concat(
+            Object.keys(config.rules || {}),
+            ...(config.overrides || []).map(c => Object.keys(c.rules || {}))
+        )) {
+            const rule = ruleMap.get(ruleId)
+            if (rule == null) {
+                throw new Error(`The '${ruleId}' rule does not exist.`)
+            }
+            if (deprecatedRuleNames.has(ruleId)) {
+                throw new Error(`The '${ruleId}' rule was deprecated.`)
+            }
+            if (removedRuleNames.has(ruleId)) {
+                throw new Error(`The '${ruleId}' rule was removed.`)
             }
         }
     },
