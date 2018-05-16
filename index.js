@@ -10,7 +10,5 @@ module.exports = {
         ".vue": require("eslint-plugin-vue").processors[".vue"],
     },
     rules: require("./lib/rules"),
-    utils: {
-        merge: require("./lib/utils").merge,
-    },
+    utils: require("./lib/utils"),
 }
