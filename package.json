@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mysticatea",
-  "version": "5.0.0-beta.10",
+  "version": "5.0.0-beta.11",
   "description": "Additional ESLint rules.",
   "engines": {
     "node": ">=6.5.0"
