@@ -21,6 +21,7 @@ const allows = new Set([
     "localStorage",
     "location",
     "matchMedia",
+    "navigator",
     "requestAnimationFrame",
     "sessionStorage",
     "window",
