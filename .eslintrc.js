@@ -6,7 +6,6 @@
 
 const fs = require("fs")
 const path = require("path")
-const { version } = require("./package.json")
 const selfPath = __dirname
 const modulePath = path.resolve(
     __dirname,
@@ -20,12 +19,4 @@ if (!fs.existsSync(modulePath)) {
 
 module.exports = {
     extends: ["plugin:mysticatea/es2015", "plugin:mysticatea/+eslint-plugin"],
-    rules: {
-        "mysticatea/eslint-plugin/require-meta-docs-url": [
-            "error",
-            {
-                pattern: `https://github.com/mysticatea/eslint-plugin/blob/v${version}/docs/rules/{{name}}.md`,
-            },
-        ],
-    },
 }
