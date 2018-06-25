@@ -2,19 +2,9 @@ sudo: false
 
 language: node_js
 node_js:
-  - "6"
+  - "6.5.0"
   - "8"
   - "10"
-
-env:
-  - ESLINT_VERSION=4
-
-before_script:
-  - npm i --no-save eslint@$ESLINT_VERSION; true
-
-script:
-  - npm run lint
-  - npm test
 
 after_success:
   - npm run codecov
