@@ -4,19 +4,20 @@
  */
 "use strict"
 
-const fs = require("fs")
 const path = require("path")
+const fs = require("fs-extra")
 const selfPath = __dirname
 const modulePath = path.resolve(
     __dirname,
-    "node_modules/eslint-plugin-mysticatea"
+    "node_modules/@mysticatea/eslint-plugin"
 )
 
 // Make symlink to use itself.
 if (!fs.existsSync(modulePath)) {
+    fs.ensureDirSync(path.dirname(modulePath))
     fs.symlinkSync(selfPath, modulePath, "junction")
 }
 
 module.exports = {
-    extends: ["plugin:mysticatea/es2015", "plugin:mysticatea/+eslint-plugin"],
+    extends: ["plugin:@mysticatea/es2015", "plugin:@mysticatea/+eslint-plugin"],
 }

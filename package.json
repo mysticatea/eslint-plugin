@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-mysticatea",
+  "name": "@mysticatea/eslint-plugin",
   "version": "5.0.0-beta.15",
   "description": "Additional ESLint rules.",
   "engines": {
@@ -27,6 +27,7 @@
     "chokidar-cli": "^1.2.0",
     "codecov": "^3.0.1",
     "eslint": "^5.0.0",
+    "fs-extra": "^6.0.1",
     "globals": "^11.5.0",
     "mocha": "^5.1.1",
     "npm-run-all": "^4.1.2",

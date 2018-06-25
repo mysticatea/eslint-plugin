@@ -14,7 +14,7 @@ const allRules = new Rules()
 const coreRules = new Rules()
 const plugins = new Plugins(environments, allRules)
 
-plugins.define("mysticatea", require("../../../index"))
+plugins.define("@mysticatea", require("../../../index"))
 
 const deprecatedRuleNames = new Set(
     Array.from(allRules.getAllLoadedRules())
@@ -86,14 +86,14 @@ module.exports = {
      * @returns {object} The core rules. Keys are rule IDs and values are each rule definition.
      */
     getPluginRuleNames(pluginName) {
-        return Object.keys(plugins.get("mysticatea").rules)
+        return Object.keys(plugins.get("@mysticatea").rules)
             .filter(
                 ruleId =>
-                    pluginName === "mysticatea"
+                    pluginName === "@mysticatea"
                         ? !ruleId.includes("/")
                         : ruleId.startsWith(`${pluginName}/`)
             )
-            .map(ruleId => `mysticatea/${ruleId}`)
+            .map(ruleId => `@mysticatea/${ruleId}`)
             .filter(
                 ruleId =>
                     !deprecatedRuleNames.has(ruleId) &&
