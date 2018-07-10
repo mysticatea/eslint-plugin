@@ -21,12 +21,12 @@
     "eslint-plugin-vue": "~4.5.0",
     "prettier": "^1.13.5",
     "typescript-eslint-parser": "^16.0.0",
-    "vue-eslint-parser": "^2.0.3"
+    "vue-eslint-parser": "^3.1.0"
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
     "codecov": "^3.0.1",
-    "eslint": "^5.0.0",
+    "eslint": "^5.1.0",
     "fs-extra": "^6.0.1",
     "globals": "^11.5.0",
     "mocha": "^5.1.1",
