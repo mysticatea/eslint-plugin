@@ -38,7 +38,7 @@
   },
   "scripts": {
     "preversion": "run-s clean update test",
-    "version": "eslint lib/rules --fix && git add lib/rules",
+    "version": "eslint lib/rules --fix && git add lib",
     "postversion": "git push && git push --tags",
     "clean": "rimraf .nyc_output coverage",
     "lint": "eslint lib scripts tests",
