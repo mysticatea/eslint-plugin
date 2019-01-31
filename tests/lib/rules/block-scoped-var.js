@@ -60,12 +60,6 @@ new RuleTester().run("block-scoped-var", rule, {
             ],
         },
         {
-            code: "{ var a; function a() {} }",
-            errors: [
-                { type: "Identifier", message: '"a" is already defined.' },
-            ],
-        },
-        {
             code: "function foo(a) { var a; } var a;",
             errors: [
                 { type: "Identifier", message: '"a" is already defined.' },
