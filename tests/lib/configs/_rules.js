@@ -6,18 +6,23 @@
 
 const Validator = require("eslint/lib/config/config-validator")
 const Environments = require("eslint/lib/config/environments")
-const Plugins = require("eslint/lib/config/plugins")
-const Rules = require("eslint/lib/rules")
+const RulesIndex = require("eslint/lib/built-in-rules-index")
+const PluginRulesIndex = require("../../../lib/rules")
 
 const environments = new Environments()
-const allRules = new Rules()
-const coreRules = new Rules()
-const plugins = new Plugins(environments, allRules)
-
-plugins.define("@mysticatea", require("../../../index"))
+const coreRules = new Map(
+    Object.keys(RulesIndex).map(key => [key, RulesIndex[key]])
+)
+const pluginRules = new Map(
+    Object.keys(PluginRulesIndex).map(key => [
+        `@mysticatea/${key}`,
+        PluginRulesIndex[key],
+    ])
+)
+const allRules = new Map([...coreRules, ...pluginRules])
 
 const deprecatedRuleNames = new Set(
-    Array.from(allRules.getAllLoadedRules())
+    Array.from(allRules)
         .filter(([, rule]) => rule && rule.meta && rule.meta.deprecated)
         .map(([ruleId]) => ruleId)
 )
@@ -35,18 +40,17 @@ module.exports = {
     validateConfig(config, source) {
         Validator.validate(
             config,
-            source,
             ruleId => allRules.get(ruleId),
-            environments
+            environments,
+            source
         )
 
         /* istanbul ignore next */
-        const ruleMap = allRules.getAllLoadedRules()
         for (const ruleId of [].concat(
             Object.keys(config.rules || {}),
             ...(config.overrides || []).map(c => Object.keys(c.rules || {}))
         )) {
-            const rule = ruleMap.get(ruleId)
+            const rule = allRules.get(ruleId)
             if (rule == null) {
                 throw new Error(`The '${ruleId}' rule does not exist.`)
             }
@@ -73,7 +77,7 @@ module.exports = {
      * @returns {string[]} The core rule names.
      */
     getCoreRuleNames() {
-        return Array.from(coreRules.getAllLoadedRules().keys()).filter(
+        return Array.from(coreRules.keys()).filter(
             ruleId =>
                 !deprecatedRuleNames.has(ruleId) &&
                 !removedRuleNames.has(ruleId)
@@ -86,7 +90,7 @@ module.exports = {
      * @returns {object} The core rules. Keys are rule IDs and values are each rule definition.
      */
     getPluginRuleNames(pluginName) {
-        return Object.keys(plugins.get("@mysticatea").rules)
+        return Object.keys(PluginRulesIndex)
             .filter(
                 ruleId =>
                     pluginName === "@mysticatea"

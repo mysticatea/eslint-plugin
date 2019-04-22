@@ -17,8 +17,7 @@ const rule = require("../../../lib/rules/no-useless-rest-spread")
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2017,
-        ecmaFeatures: { experimentalObjectRestSpread: true },
+        ecmaVersion: 2018,
     },
 })
 
