@@ -87,6 +87,7 @@ new RuleTester().run("block-scoped-var", rule, {
         {
             code:
                 "{ var {x: [a = 0]} = {x: [1]}; a; } { var a; ({x: [a = 0]} = {x: [1]}); }",
+            env: { es6: true },
             errors: [
                 {
                     type: "Identifier",
@@ -94,7 +95,6 @@ new RuleTester().run("block-scoped-var", rule, {
                     column: 43,
                 },
             ],
-            env: { es6: true },
         },
     ],
 })

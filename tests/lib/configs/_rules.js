@@ -4,15 +4,11 @@
  */
 "use strict"
 
-const Validator = require("eslint/lib/config/config-validator")
-const Environments = require("eslint/lib/config/environments")
-const RulesIndex = require("eslint/lib/built-in-rules-index")
-const PluginRulesIndex = require("../../../lib/rules")
+const { Linter } = require("eslint")
+const Validator = require("eslint/lib/shared/config-validator")
+const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
 
-const environments = new Environments()
-const coreRules = new Map(
-    Object.keys(RulesIndex).map(key => [key, RulesIndex[key]])
-)
+const coreRules = new Linter().getRules()
 const pluginRules = new Map(
     Object.keys(PluginRulesIndex).map(key => [
         `@mysticatea/${key}`,
@@ -38,12 +34,7 @@ module.exports = {
      * @returns {void}
      */
     validateConfig(config, source) {
-        Validator.validate(
-            config,
-            ruleId => allRules.get(ruleId),
-            environments,
-            source
-        )
+        Validator.validate(config, source, ruleId => allRules.get(ruleId))
 
         /* istanbul ignore next */
         for (const ruleId of [].concat(
@@ -91,11 +82,10 @@ module.exports = {
      */
     getPluginRuleNames(pluginName) {
         return Object.keys(PluginRulesIndex)
-            .filter(
-                ruleId =>
-                    pluginName === "@mysticatea"
-                        ? !ruleId.includes("/")
-                        : ruleId.startsWith(`${pluginName}/`)
+            .filter(ruleId =>
+                pluginName === "@mysticatea"
+                    ? !ruleId.includes("/")
+                    : ruleId.startsWith(`${pluginName}/`)
             )
             .map(ruleId => `@mysticatea/${ruleId}`)
             .filter(

@@ -46,52 +46,52 @@ tester.run("prefer-for-of", rule, {
         {
             code: "list.forEach(function(value) { return; this.a });",
             output: "for (let value of list) { continue; list.a }",
-            errors: ["Expected for-of statement."],
             globals: { list: false, obj: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "a.b.c.forEach(function(value) { return; this.a });",
             output: "for (let value of a.b.c) { continue; a.b.c.a }",
-            errors: ["Expected for-of statement."],
             globals: { list: false, a: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "list.forEach(function(value) { return; this.a }, obj);",
             output: "for (let value of list) { continue; obj.a }",
-            errors: ["Expected for-of statement."],
             globals: { list: false, obj: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code:
                 "list.forEach(function(value) { return; let obj; this.a }, obj);",
             output: null,
-            errors: ["Expected for-of statement."],
             globals: { list: false, obj: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "foo().forEach(function(value) { return; this.a });",
             output: null,
-            errors: ["Expected for-of statement."],
             globals: { list: false, foo: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "list.forEach(function(value) { return; this.a }, foo());",
             output: null,
-            errors: ["Expected for-of statement."],
             globals: { list: false, foo: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "list.forEach(function(value) { return this });",
             output: "for (let value of list) { continue; }",
-            errors: ["Expected for-of statement."],
             globals: { list: false, obj: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code:
                 "list.forEach(function(value) { return; foo(a => this[a]) });",
             output: "for (let value of list) { continue; foo(a => list[a]) }",
-            errors: ["Expected for-of statement."],
             globals: { list: false, obj: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "list.forEach((value) => { return });",
@@ -111,14 +111,14 @@ tester.run("prefer-for-of", rule, {
         {
             code: "list.forEach(value => { this });",
             output: "for (let value of list) { this }",
-            errors: ["Expected for-of statement."],
             globals: { list: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "list.forEach(value => { let list; this });",
             output: "for (let value of list) { let list; this }",
-            errors: ["Expected for-of statement."],
             globals: { list: false },
+            errors: ["Expected for-of statement."],
         },
         {
             code: "list.forEach(value => value);",

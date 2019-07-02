@@ -19,16 +19,16 @@ fs.writeFileSync(
 
 module.exports = Object.assign(
 ${fs
-        .readdirSync(path.resolve(__dirname, "../lib/foreign-rules"))
-        .map(fileName => path.basename(fileName, ".js"))
-        .map(id => `    require("./foreign-rules/${id}"),`)
-        .join("\n")}
+    .readdirSync(path.resolve(__dirname, "../lib/foreign-rules"))
+    .map(fileName => path.basename(fileName, ".js"))
+    .map(id => `    require("./foreign-rules/${id}"),`)
+    .join("\n")}
     {
 ${fs
-        .readdirSync(path.resolve(__dirname, "../lib/rules"))
-        .map(fileName => path.basename(fileName, ".js"))
-        .map(id => `        "${id}": require("./rules/${id}"),`)
-        .join("\n")}
+    .readdirSync(path.resolve(__dirname, "../lib/rules"))
+    .map(fileName => path.basename(fileName, ".js"))
+    .map(id => `        "${id}": require("./rules/${id}"),`)
+    .join("\n")}
     }
 )
 `

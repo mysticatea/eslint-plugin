@@ -19,11 +19,11 @@ fs.writeFileSync(
 
 module.exports = {
 ${fs
-        .readdirSync(path.resolve(__dirname, "../lib/configs"))
-        .map(fileName => path.basename(fileName, ".js"))
-        .filter(id => !id.startsWith("_"))
-        .map(id => `    "${id}": require("./configs/${id}"),`)
-        .join("\n")}
+    .readdirSync(path.resolve(__dirname, "../lib/configs"))
+    .map(fileName => path.basename(fileName, ".js"))
+    .filter(id => !id.startsWith("_"))
+    .map(id => `    "${id}": require("./configs/${id}"),`)
+    .join("\n")}
 }
 `
 )

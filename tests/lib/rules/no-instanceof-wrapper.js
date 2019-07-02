@@ -76,10 +76,10 @@ tester.run("no-instanceof-wrapper", rule, {
         {
             code: "x instanceof Symbol",
             output: 'typeof x === "symbol"',
+            env: { es6: true },
             errors: [
                 "Unexpected 'instanceof' operator. Use 'typeof x === \"symbol\"' instead.",
             ],
-            env: { es6: true },
         },
     ],
 })
