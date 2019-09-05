@@ -10,7 +10,7 @@ const Rules = require("./_rules")
 
 describe("'+eslint-plugin.js'", () => {
     const config = require("../../../lib/configs/+eslint-plugin")
-    const configuredRules = config.overrides[0].rules
+    const configuredRules = Rules.getRulesOfConfig(config, "+eslint-plugin")
     const existingRules = Rules.getPluginRuleNames("eslint-plugin")
 
     it("should be a valid config.", () => {

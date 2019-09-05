@@ -9,12 +9,8 @@ const assert = require("assert")
 const Rules = require("./_rules")
 
 describe("'vue.js'", () => {
-    const config = require("../../../lib/configs/_vue")
-    const configuredRules = Object.assign(
-        {},
-        config.rules,
-        ...config.overrides.map(c => c.rules)
-    )
+    const config = require("../../../lib/configs/_override-vue")
+    const configuredRules = Rules.getRulesOfConfig(config, "_override-ts")
     const existingRules = Rules.getPluginRuleNames("vue")
 
     it("should be a valid config.", () => {

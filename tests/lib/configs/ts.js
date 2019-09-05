@@ -9,12 +9,8 @@ const assert = require("assert")
 const Rules = require("./_rules")
 
 describe("'ts.js'", () => {
-    const config = require("../../../lib/configs/_ts")
-    const configuredRules = Object.assign(
-        {},
-        config.rules,
-        ...config.overrides.map(c => c.rules)
-    )
+    const config = require("../../../lib/configs/_override-ts")
+    const configuredRules = Rules.getRulesOfConfig(config, "_override-ts")
     const existingRules = Rules.getPluginRuleNames("ts")
 
     it("should be a valid config.", () => {

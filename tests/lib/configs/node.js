@@ -10,11 +10,7 @@ const Rules = require("./_rules")
 
 describe("'+node.js'", () => {
     const config = require("../../../lib/configs/+node")
-    const configuredRules = Object.assign(
-        {},
-        config.rules,
-        ...config.overrides.map(c => c.rules)
-    )
+    const configuredRules = Rules.getRulesOfConfig(config, "+node")
     const existingRules = Rules.getPluginRuleNames("node")
 
     it("should be a valid config.", () => {

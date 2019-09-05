@@ -23,11 +23,12 @@ function isES6Rule(ruleId) {
 
 describe("'es5.js'", () => {
     const config = require("../../../lib/configs/es5")
+    const configuredRules = Rules.getRulesOfConfig(config, "es5")
     const existingRules = [].concat(
         Rules.getCoreRuleNames(),
+        Rules.getPluginRuleNames("mysticatea"),
         Rules.getPluginRuleNames("eslint-comments"),
-        Rules.getPluginRuleNames("prettier"),
-        Rules.getPluginRuleNames("mysticatea")
+        Rules.getPluginRuleNames("prettier")
     )
 
     it("should be a valid config.", () => {
@@ -36,12 +37,12 @@ describe("'es5.js'", () => {
 
     for (const ruleId of existingRules) {
         it(`should include existing rule '${ruleId}'.`, () => {
-            assert(ruleId in config.rules)
+            assert(ruleId in configuredRules)
         })
 
         if (isES6Rule(ruleId)) {
             it(`should disable ES2015 rule '${ruleId}'.`, () => {
-                assert.strictEqual(config.rules[ruleId], "off")
+                assert.strictEqual(configuredRules[ruleId], "off")
             })
         }
     }

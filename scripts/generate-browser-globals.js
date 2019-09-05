@@ -29,7 +29,7 @@ const allows = new Set([
 
 for (const key of Object.keys(originalGlobals).sort()) {
     if (key[0] === key[0].toUpperCase() || allows.has(key)) {
-        globals[key] = originalGlobals[key]
+        globals[key] = originalGlobals[key] ? "writable" : "readonly"
     }
 }
 

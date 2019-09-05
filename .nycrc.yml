@@ -1,0 +1,7 @@
+include:
+- lib
+exclude:
+- lib/processors/vue.js
+reporter:
+- text-summary
+- lcov
