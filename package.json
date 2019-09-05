@@ -26,7 +26,7 @@
   "devDependencies": {
     "@mysticatea/eslint-plugin": "file:.",
     "codecov": "^3.5.0",
-    "eslint": "~6.3.0",
+    "eslint": "github:eslint/eslint#21eb9044135c01b6c12188517bba840614483fc6",
     "fs-extra": "^8.1.0",
     "globals": "^12.0.0",
     "mocha": "^6.2.0",

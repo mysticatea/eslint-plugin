@@ -23,6 +23,7 @@ function isES6Rule(ruleId) {
 
 describe("'es2015.js'", () => {
     const config = require("../../../lib/configs/es2015")
+    const configuredRules = Rules.getRulesOfConfig(config, "es2015")
     const existingRules = Rules.getCoreRuleNames()
 
     it("should be a valid config.", () => {
@@ -32,7 +33,7 @@ describe("'es2015.js'", () => {
     for (const ruleId of existingRules) {
         if (isES6Rule(ruleId)) {
             it(`should include ES2015 rule '${ruleId}'.`, () => {
-                assert(ruleId in config.rules)
+                assert(ruleId in configuredRules)
             })
         }
     }

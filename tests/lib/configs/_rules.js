@@ -5,6 +5,9 @@
 "use strict"
 
 const { Linter } = require("eslint")
+const {
+    ConfigArrayFactory,
+} = require("eslint/lib/cli-engine/config-array-factory")
 const Validator = require("eslint/lib/shared/config-validator")
 const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
 
@@ -25,6 +28,8 @@ const deprecatedRuleNames = new Set(
 const removedRuleNames = new Set(
     Object.keys(require("eslint/conf/replacements.json").rules)
 )
+
+const configFactory = new ConfigArrayFactory()
 
 module.exports = {
     /**
@@ -83,7 +88,7 @@ module.exports = {
     getPluginRuleNames(pluginName) {
         return Object.keys(PluginRulesIndex)
             .filter(ruleId =>
-                pluginName === "@mysticatea"
+                pluginName === "mysticatea"
                     ? !ruleId.includes("/")
                     : ruleId.startsWith(`${pluginName}/`)
             )
@@ -93,5 +98,22 @@ module.exports = {
                     !deprecatedRuleNames.has(ruleId) &&
                     !removedRuleNames.has(ruleId)
             )
+    },
+
+    *iterateRulesOfConfig(config, name) {
+        const filePath = require.resolve(`../../../lib/configs/${name}`)
+        for (const element of configFactory.create(config, { filePath })) {
+            if (element.rules) {
+                yield* Object.entries(element.rules)
+            }
+        }
+    },
+
+    getRulesOfConfig(config, name) {
+        const rules = {}
+        for (const [key, value] of this.iterateRulesOfConfig(config, name)) {
+            rules[key] = value
+        }
+        return rules
     },
 }
