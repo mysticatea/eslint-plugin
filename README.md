@@ -16,8 +16,8 @@ npm install --save-dev eslint @mysticatea/eslint-plugin
 
 ### Requirements
 
-- Node.js `^6.5.0`, `^8.0.0`, `^9.0.0` or newer versions.
-- ESLint `^4.19.1` or newer versions.
+- Node.js `^8.10.0` or newer versions.
+- ESLint `^6.3.0` or newer versions.
 
 ## 📖 Usage
 
@@ -25,6 +25,7 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 
 ### Configs
 
+- `plugin:@mysticatea/es2020` ... Basic configuration for ES2020.
 - `plugin:@mysticatea/es2019` ... Basic configuration for ES2019.
 - `plugin:@mysticatea/es2018` ... Basic configuration for ES2018.
 - `plugin:@mysticatea/es2017` ... Basic configuration for ES2017.
