@@ -9,7 +9,7 @@ const {
     ConfigArrayFactory,
 } = require("eslint/lib/cli-engine/config-array-factory")
 const Validator = require("eslint/lib/shared/config-validator")
-const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
+const { rules: PluginRulesIndex } = require("../../../")
 
 const coreRules = new Linter().getRules()
 const pluginRules = new Map(
@@ -82,7 +82,7 @@ module.exports = {
 
     /**
      * Get the plugin rules.
-     * @param {"eslint-comments"|"node"|"ts"|"vue"} pluginName The plugin name to get.
+     * @param {"node"|"ts"} pluginName The plugin name to get.
      * @returns {object} The core rules. Keys are rule IDs and values are each rule definition.
      */
     getPluginRuleNames(pluginName) {

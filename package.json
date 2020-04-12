@@ -1,5 +1,5 @@
 {
-  "name": "@mysticatea/eslint-plugin",
+  "name": "@mysticatea/eslint-plugin-core",
   "version": "13.0.0",
   "description": "Additional ESLint rules.",
   "engines": {
@@ -10,31 +10,19 @@
     "lib"
   ],
   "peerDependencies": {
-    "eslint": ">=6.6.0"
+    "eslint": ">=6.8.0"
   },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "~2.6.1",
-    "@typescript-eslint/parser": "~2.6.1",
-    "eslint-plugin-eslint-comments": "~3.1.2",
-    "eslint-plugin-eslint-plugin": "~2.1.0",
-    "eslint-plugin-node": "~10.0.0",
-    "eslint-plugin-prettier": "~3.1.1",
-    "eslint-plugin-vue": "~6.0.0",
-    "prettier": "~1.19.1",
-    "vue-eslint-parser": "^7.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@mysticatea/eslint-plugin": "file:.",
-    "codecov": "^3.6.1",
+    "@mysticatea/eslint-plugin": "^13.0.0",
+    "codecov": "^3.6.5",
     "eslint": "~6.6.0",
-    "fs-extra": "^8.1.0",
-    "globals": "^12.1.1",
-    "mocha": "^6.2.2",
+    "mocha": "^7.1.1",
     "npm-run-all": "^4.1.5",
-    "nyc": "^14.1.1",
+    "nyc": "^15.0.1",
     "opener": "^1.5.1",
-    "rimraf": "^3.0.0",
-    "typescript": "~3.7.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "clean": "rimraf .nyc_output coverage",
@@ -42,7 +30,7 @@
     "codecov": "codecov --disable=gcov -t $CODECOV_TOKEN",
     "lint": "eslint lib scripts tests",
     "test": "npm run -s lint && nyc mocha \"tests/lib/**/*.js\" --reporter dot",
-    "update": "node scripts/generate-browser-globals && node scripts/generate-configs && node scripts/generate-rules",
+    "update": "node scripts/generate-configs && node scripts/generate-rules",
     "preversion": "run-s clean update test",
     "version": "eslint lib/rules --fix && git add lib",
     "postversion": "git push && git push --tags",
@@ -50,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mysticatea/eslint-plugin.git"
+    "url": "git+https://github.com/mysticatea/eslint-plugin-core.git"
   },
   "keywords": [
     "eslint",
@@ -66,9 +54,12 @@
     "ignore"
   ],
   "author": "Toru Nagashima",
+  "contributors": [
+    "Brett Zamir"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mysticatea/eslint-plugin/issues"
+    "url": "https://github.com/mysticatea/eslint-plugin-core/issues"
   },
-  "homepage": "https://github.com/mysticatea/eslint-plugin#readme"
+  "homepage": "https://github.com/mysticatea/eslint-plugin-core#readme"
 }
