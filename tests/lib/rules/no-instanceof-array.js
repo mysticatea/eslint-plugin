@@ -20,6 +20,7 @@ const tester = new RuleTester()
 
 tester.run("no-instanceof-array", rule, {
     valid: [
+        "var Array = 5",
         "Array",
         "Array.isArray(x)",
         "function foo(Array) { x instanceof Array }",
