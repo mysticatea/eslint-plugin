@@ -1,2 +1,4 @@
 /node_modules
-!.eslintrc.*
+!.eslintrc.js
+!.ncurc.js
+coverage

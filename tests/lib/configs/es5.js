@@ -16,20 +16,15 @@ const Rules = require("./_rules")
  */
 function isES6Rule(ruleId) {
     const def = Rules.getRuleDefinition(ruleId)
-    const category = def && def.meta && def.meta.docs && def.meta.docs.category
+    const version = def && def.meta && def.meta.docs && def.meta.docs.version
 
-    return category === "ECMAScript 6"
+    return version === "es2015"
 }
 
 describe("'es5.js'", () => {
     const config = require("../../../lib/configs/es5")
     const configuredRules = Rules.getRulesOfConfig(config, "es5")
-    const existingRules = [].concat(
-        Rules.getCoreRuleNames(),
-        Rules.getPluginRuleNames("mysticatea"),
-        Rules.getPluginRuleNames("eslint-comments"),
-        Rules.getPluginRuleNames("prettier")
-    )
+    const existingRules = Rules.getPluginRuleNames("mysticatea")
 
     it("should be a valid config.", () => {
         Rules.validateConfig(config, "es5.js")
