@@ -7,9 +7,10 @@
 const { Linter } = require("eslint")
 const {
     ConfigArrayFactory,
-} = require("eslint/lib/cli-engine/config-array-factory")
+} = require("@eslint/eslintrc/lib/config-array-factory")
 const Validator = require("eslint/lib/shared/config-validator")
 const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
+const { rules: removedRules } = require("eslint/conf/replacements.json")
 
 const coreRules = new Linter().getRules()
 const pluginRules = new Map(
@@ -25,9 +26,7 @@ const deprecatedRuleNames = new Set(
         .filter(([, rule]) => rule && rule.meta && rule.meta.deprecated)
         .map(([ruleId]) => ruleId)
 )
-const removedRuleNames = new Set(
-    Object.keys(require("eslint/conf/replacements.json").rules)
-)
+const removedRuleNames = new Set(Object.keys(removedRules))
 
 const configFactory = new ConfigArrayFactory()
 
@@ -110,10 +109,12 @@ module.exports = {
     },
 
     getRulesOfConfig(config, name) {
-        const rules = {}
-        for (const [key, value] of this.iterateRulesOfConfig(config, name)) {
-            rules[key] = value
-        }
-        return rules
+        return this.iterateRulesOfConfig(config, name).reduce(
+            (configRules, [key, value]) => ({
+                ...configRules,
+                [key]: value,
+            }),
+            {}
+        )
     },
 }

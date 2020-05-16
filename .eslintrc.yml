@@ -2,3 +2,18 @@ root: true
 extends:
   - plugin:@mysticatea/es2015
   - plugin:@mysticatea/+eslint-plugin
+
+overrides:
+  - files: ["lib/utils.js", "scripts/*.js"]
+    rules:
+      "@mysticatea/node/no-sync": off
+
+  - files:
+      [
+        "lib/configs.js",
+        "lib/foreign-rules/ts.js",
+        "lib/processors.js",
+        "lib/rules.js",
+      ]
+    rules:
+      "@mysticatea/node/global-require": off

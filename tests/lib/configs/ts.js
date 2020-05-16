@@ -6,10 +6,10 @@
 "use strict"
 
 const assert = require("assert")
+const config = require("../../../lib/configs/_override-ts")
 const Rules = require("./_rules")
 
 describe("'ts.js'", () => {
-    const config = require("../../../lib/configs/_override-ts")
     const configuredRules = Rules.getRulesOfConfig(config, "_override-ts")
     const existingRules = Rules.getPluginRuleNames("ts")
 
