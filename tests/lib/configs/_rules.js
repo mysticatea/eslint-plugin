@@ -7,7 +7,7 @@
 const { Linter } = require("eslint")
 const {
     ConfigArrayFactory,
-} = require("eslint/lib/cli-engine/config-array-factory")
+} = require("@eslint/eslintrc/lib/config-array-factory")
 const Validator = require("eslint/lib/shared/config-validator")
 const { rules: removedRules } = require("eslint/conf/replacements.json")
 const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
