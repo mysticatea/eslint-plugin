@@ -16,8 +16,8 @@ npm install --save-dev eslint @mysticatea/eslint-plugin
 
 ### Requirements
 
-- Node.js `^8.10.0` or newer versions.
-- ESLint `^6.3.0` or newer versions.
+- Node.js `^10.12.0 || >=12.0.0` or newer versions.
+- ESLint `^7.0.0` or newer versions.
 
 ## 📖 Usage
 
