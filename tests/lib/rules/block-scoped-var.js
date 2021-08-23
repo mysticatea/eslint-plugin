@@ -14,8 +14,7 @@ new RuleTester().run("block-scoped-var", rule, {
         "if (true) { var a; a; } else if (true) { var a; a; } else { var a; a; }",
         "while (true) { var a; a; } do { var a; a; } while (true);",
         {
-            code:
-                "for (var a = 0; a; a) { a; var b; b; } for (var a in []) { a; var b; b; } for (var a of []) { a; var b; b; }",
+            code: "for (var a = 0; a; a) { a; var b; b; } for (var a in []) { a; var b; b; } for (var a of []) { a; var b; b; }",
             env: { es6: true },
         },
         "switch (0) { case 0: var a; a; case 1: a; default: a; } { var a; a; }",
@@ -85,8 +84,7 @@ new RuleTester().run("block-scoped-var", rule, {
             ],
         },
         {
-            code:
-                "{ var {x: [a = 0]} = {x: [1]}; a; } { var a; ({x: [a = 0]} = {x: [1]}); }",
+            code: "{ var {x: [a = 0]} = {x: [1]}; a; } { var a; ({x: [a = 0]} = {x: [1]}); }",
             env: { es6: true },
             errors: [
                 {
