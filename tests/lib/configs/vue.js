@@ -6,10 +6,10 @@
 "use strict"
 
 const assert = require("assert")
+const config = require("../../../lib/configs/_override-vue")
 const Rules = require("./_rules")
 
 describe("'vue.js'", () => {
-    const config = require("../../../lib/configs/_override-vue")
     const configuredRules = Rules.getRulesOfConfig(config, "_override-ts")
     const existingRules = Rules.getPluginRuleNames("vue")
 

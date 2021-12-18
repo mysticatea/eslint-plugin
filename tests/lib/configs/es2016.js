@@ -5,11 +5,10 @@
  */
 "use strict"
 
+const config = require("../../../lib/configs/es2016")
 const Rules = require("./_rules")
 
 describe("'es2016.js'", () => {
-    const config = require("../../../lib/configs/es2016")
-
     it("should be a valid config.", () => {
         Rules.validateConfig(config, "es2016.js")
     })

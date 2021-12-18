@@ -6,10 +6,10 @@
 "use strict"
 
 const assert = require("assert")
+const config = require("../../../lib/configs/+node")
 const Rules = require("./_rules")
 
 describe("'+node.js'", () => {
-    const config = require("../../../lib/configs/+node")
     const configuredRules = Rules.getRulesOfConfig(config, "+node")
     const existingRules = Rules.getPluginRuleNames("node")
 
