@@ -13,7 +13,7 @@ const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
 
 const coreRules = new Linter().getRules()
 const pluginRules = new Map(
-    Object.keys(PluginRulesIndex).map(key => [
+    Object.keys(PluginRulesIndex).map((key) => [
         `@mysticatea/${key}`,
         PluginRulesIndex[key],
     ])
@@ -39,12 +39,12 @@ module.exports = {
      * @returns {void}
      */
     validateConfig(config, source) {
-        Validator.validate(config, source, ruleId => allRules.get(ruleId))
+        Validator.validate(config, source, (ruleId) => allRules.get(ruleId))
 
         /* istanbul ignore next */
         for (const ruleId of [].concat(
             Object.keys(config.rules || {}),
-            ...(config.overrides || []).map(c => Object.keys(c.rules || {}))
+            ...(config.overrides || []).map((c) => Object.keys(c.rules || {}))
         )) {
             const rule = allRules.get(ruleId)
             if (rule == null) {
@@ -74,7 +74,7 @@ module.exports = {
      */
     getCoreRuleNames() {
         return Array.from(coreRules.keys()).filter(
-            ruleId =>
+            (ruleId) =>
                 !deprecatedRuleNames.has(ruleId) &&
                 !removedRuleNames.has(ruleId)
         )
@@ -87,14 +87,14 @@ module.exports = {
      */
     getPluginRuleNames(pluginName) {
         return Object.keys(PluginRulesIndex)
-            .filter(ruleId =>
+            .filter((ruleId) =>
                 pluginName === "mysticatea"
                     ? !ruleId.includes("/")
                     : ruleId.startsWith(`${pluginName}/`)
             )
-            .map(ruleId => `@mysticatea/${ruleId}`)
+            .map((ruleId) => `@mysticatea/${ruleId}`)
             .filter(
-                ruleId =>
+                (ruleId) =>
                     !deprecatedRuleNames.has(ruleId) &&
                     !removedRuleNames.has(ruleId)
             )
