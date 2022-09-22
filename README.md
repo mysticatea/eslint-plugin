@@ -25,6 +25,7 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 
 ### Configs
 
+- `plugin:@mysticatea/es2022` ... Basic configuration for ES2022.
 - `plugin:@mysticatea/es2021` ... Basic configuration for ES2021.
 - `plugin:@mysticatea/es2020` ... Basic configuration for ES2020.
 - `plugin:@mysticatea/es2019` ... Basic configuration for ES2019.
