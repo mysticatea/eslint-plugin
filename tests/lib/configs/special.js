@@ -5,11 +5,10 @@
  */
 "use strict"
 
+const config = require("../../../lib/configs/_override-special")
 const Rules = require("./_rules")
 
 describe("'special.js'", () => {
-    const config = require("../../../lib/configs/_override-special")
-
     it("should be a valid config.", () => {
         Rules.validateConfig(config, "special.js")
     })

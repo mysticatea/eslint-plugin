@@ -6,10 +6,10 @@
 "use strict"
 
 const assert = require("assert")
+const config = require("../../../lib/configs/+eslint-plugin")
 const Rules = require("./_rules")
 
 describe("'+eslint-plugin.js'", () => {
-    const config = require("../../../lib/configs/+eslint-plugin")
     const configuredRules = Rules.getRulesOfConfig(config, "+eslint-plugin")
     const existingRules = Rules.getPluginRuleNames("eslint-plugin")
 

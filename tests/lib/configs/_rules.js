@@ -9,6 +9,7 @@ const {
     ConfigArrayFactory,
 } = require("eslint/lib/cli-engine/config-array-factory")
 const Validator = require("eslint/lib/shared/config-validator")
+const { rules: removedRules } = require("eslint/conf/replacements.json")
 const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
 
 const coreRules = new Linter().getRules()
@@ -25,9 +26,7 @@ const deprecatedRuleNames = new Set(
         .filter(([, rule]) => rule && rule.meta && rule.meta.deprecated)
         .map(([ruleId]) => ruleId)
 )
-const removedRuleNames = new Set(
-    Object.keys(require("eslint/conf/replacements.json").rules)
-)
+const removedRuleNames = new Set(Object.keys(removedRules))
 
 const configFactory = new ConfigArrayFactory()
 
