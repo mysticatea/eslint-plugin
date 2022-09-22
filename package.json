@@ -20,7 +20,7 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-vue": "^6.2.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.7.1",
     "vue-eslint-parser": "^7.11.0"
   },
   "devDependencies": {
@@ -39,6 +39,7 @@
     "clean": "rimraf .nyc_output coverage",
     "coverage": "opener coverage/lcov-report/index.html",
     "codecov": "codecov --disable=gcov -t $CODECOV_TOKEN",
+    "format": "prettier -w .",
     "lint": "eslint lib scripts tests",
     "test": "npm run -s lint && nyc mocha \"tests/lib/**/*.js\" --reporter dot",
     "update": "node scripts/generate-browser-globals && node scripts/generate-configs && node scripts/generate-rules",

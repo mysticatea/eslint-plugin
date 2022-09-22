@@ -19,13 +19,13 @@ class A {
     }
 
     static bar() {
-        this.foo()   //ERROR: Unexpected 'this'.
+        this.foo() //ERROR: Unexpected 'this'.
     }
 }
 
 class B extends A {
     static foo() {
-        super.foo()  //ERROR: Unexpected 'super'.
+        super.foo() //ERROR: Unexpected 'super'.
     }
 }
 ```
