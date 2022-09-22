@@ -3,7 +3,7 @@
   "version": "13.0.0",
   "description": "Additional ESLint rules.",
   "engines": {
-    "node": ">=8.10.0"
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
   },
   "main": "index.js",
   "files": [
@@ -13,28 +13,27 @@
     "eslint": ">=6.6.0"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "~2.6.1",
-    "@typescript-eslint/parser": "~2.6.1",
-    "eslint-plugin-eslint-comments": "~3.1.2",
-    "eslint-plugin-eslint-plugin": "~2.1.0",
-    "eslint-plugin-node": "~10.0.0",
-    "eslint-plugin-prettier": "~3.1.1",
-    "eslint-plugin-vue": "~6.0.0",
-    "prettier": "~1.19.1",
-    "vue-eslint-parser": "^7.0.0"
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-eslint-plugin": "^3.6.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^1.19.1",
+    "vue-eslint-parser": "^7.11.0"
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "file:.",
-    "codecov": "^3.6.1",
-    "eslint": "~6.6.0",
-    "fs-extra": "^8.1.0",
-    "globals": "^12.1.1",
-    "mocha": "^6.2.2",
+    "codecov": "^3.8.3",
+    "eslint": "^6.8.0",
+    "globals": "^12.4.0",
+    "mocha": "^6.2.3",
     "npm-run-all": "^4.1.5",
     "nyc": "^14.1.1",
-    "opener": "^1.5.1",
-    "rimraf": "^3.0.0",
-    "typescript": "~3.7.2"
+    "opener": "^1.5.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.10"
   },
   "scripts": {
     "clean": "rimraf .nyc_output coverage",
