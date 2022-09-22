@@ -10,7 +10,7 @@ It's more readable than `Array#forEach` since it does not require closures.
 ```js
 /*eslint prefer-for-of: "error"*/
 
-list.forEach(value => {
+list.forEach((value) => {
     doSomething(value)
 })
 

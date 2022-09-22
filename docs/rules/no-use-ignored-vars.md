@@ -13,11 +13,11 @@ Examples of **incorrect** code for this rule:
 ```js
 /*eslint no-use-ignored-vars: "error"*/
 
-let _foo = 0;
-doSomething(_foo);
+let _foo = 0
+doSomething(_foo)
 
 function foo(_a) {
-    doSomething(_a);
+    doSomething(_a)
 }
 ```
 
@@ -26,10 +26,10 @@ Examples of **correct** code for this rule:
 ```js
 /*eslint no-use-ignored-vars: "error"*/
 
-let _foo = 0;
+let _foo = 0
 
 function foo(_a) {
-    doSomething();
+    doSomething()
 }
 ```
 

@@ -1,33 +1,47 @@
 name: CI
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-  schedule:
-    - cron: 0 0 * * 0
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+    schedule:
+        - cron: 0 0 * * 0
 
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [12.x, 10.x, 8.x]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
-      - name: Install Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Install Packages
-        run: npm install
-      - name: Test
-        run: npm test
-      - name: Send Coverage
-        run: npm run -s codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    test:
+        name: Test
+        strategy:
+            matrix:
+                os: [ubuntu-latest]
+                eslint: [6]
+                node: [12.22.0, 12, 14.17.0, 14, 16, 18]
+                include:
+                    # On other platforms
+                    - os: windows-latest
+                      node: 18
+                    - os: macos-latest
+                      node: 18
+                    # On the minimum supported ESLint/Node.js version
+                    - eslint: 6.6.0
+                      node: 12.22.0
+
+        runs-on: ${{ matrix.os }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Install Node.js ${{ matrix.node }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node }}
+            - name: Install Packages
+              run: npm install
+              env:
+                  CI: true
+            - name: Install ESLint@${{  matrix.eslint  }}
+              run: npm install eslint@${{  matrix.eslint  }}
+            - name: Test
+              run: npm test
+            - name: Send Coverage
+              run: npm run -s codecov
+              env:
+                  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
