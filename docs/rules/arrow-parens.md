@@ -12,39 +12,45 @@ This rule ignores arrow functions that there is a open paren before itself.
 ### The following patterns are considered warnings:
 
 ```js
-const twice = x => 2 * x;
+const twice = (x) => 2 * x
 ```
 
 ```js
 const obj = {
-  twich: x => 2 * x
-};
+    twich: (x) => 2 * x,
+}
 ```
 
 ```js
-p.then(x => 2 * x, err => console.error(err));
+p.then(
+    (x) => 2 * x,
+    (err) => console.error(err)
+)
 ```
 
 ### The following patterns are not considered warnings:
 
 ```js
-const twice = (x) => 2 * x;
-const twice = (x => 2 * x);
+const twice = (x) => 2 * x
+const twice = (x) => 2 * x
 ```
 
 ```js
 const obj = {
-  twich: (x) => 2 * x
-};
+    twich: (x) => 2 * x,
+}
 const obj2 = {
-  twich: (x => 2 * x)
-};
+    twich: (x) => 2 * x,
+}
 ```
 
 ```js
-xs.map(x => 2 * x);
+xs.map((x) => 2 * x)
 ```
 
 ```js
-p.then(x => 2 * x, (err) => console.error(err));
+p.then(
+    (x) => 2 * x,
+    (err) => console.error(err)
+)
 ```

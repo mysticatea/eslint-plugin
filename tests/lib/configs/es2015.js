@@ -6,6 +6,7 @@
 "use strict"
 
 const assert = require("assert")
+const config = require("../../../lib/configs/es2015")
 const Rules = require("./_rules")
 
 /**
@@ -22,7 +23,6 @@ function isES6Rule(ruleId) {
 }
 
 describe("'es2015.js'", () => {
-    const config = require("../../../lib/configs/es2015")
     const configuredRules = Rules.getRulesOfConfig(config, "es2015")
     const existingRules = Rules.getCoreRuleNames()
 
