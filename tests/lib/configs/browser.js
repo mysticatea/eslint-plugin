@@ -5,11 +5,10 @@
  */
 "use strict"
 
+const config = require("../../../lib/configs/+browser")
 const Rules = require("./_rules")
 
 describe("'+browser.js'", () => {
-    const config = require("../../../lib/configs/+browser")
-
     it("should be a valid config.", () => {
         Rules.validateConfig(config, "+browser.js")
     })

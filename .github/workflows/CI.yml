@@ -10,17 +10,32 @@ on:
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12.x, 10.x, 8.x]
+        os: [ubuntu-latest]
+        eslint: [8]
+        node: [16]
+        include:
+          # On other platforms
+          - node: 16
+            os: windows-latest
+          - node: 16
+            os: macos-latest
+          # On old Node.js versions
+          - node: 14
+            os: ubuntu-latest
+          - node: 12
+            os: ubuntu-latest
+          # On the minimum supported ESLint/Node.js version
+          - node: 12.22.0
+            os: ubuntu-latest
+
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v2
       - name: Install Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
       - name: Install Packages
